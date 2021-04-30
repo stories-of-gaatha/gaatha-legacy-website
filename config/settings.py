@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "apps.work",
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,8 @@ if DEBUG:
     # Settings for local storage and local staticfiles
     STATIC_URL = "/static/"
     MEDIA_URL = "/media/"
+
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
