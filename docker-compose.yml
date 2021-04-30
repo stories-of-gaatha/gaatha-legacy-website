@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  style:
+    image: catchdigital/node-sass
+    command: sh -c "node-sass -r -w -o /code/static/css/ /code/stylesheets/ "
+    volumes:
+      - .:/code
+  db:
+    image: postgres:12.0-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PWD}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  web:
+    build: .
+    env_file:
+      - .env
+    command: bash -c "/code/scripts/run_develop.sh"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - style
+
+volumes:
+  db-data:
+  redis-data:

@@ -1,0 +1,18 @@
+.ipynb_checkpoints
+
+# env variable
+.env
+
+# Visual Studio Code
+.vscode/
+
+# Django static files
+staticfiles/
+
+__pycache__/
+
+# Media files
+media
+
+# sass cache
+.sass-cache/
