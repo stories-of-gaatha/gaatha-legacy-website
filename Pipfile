@@ -5,6 +5,12 @@ name = "pypi"
 
 [packages]
 django = "==3.2"
+psycopg2-binary = "==2.8.6"
+python-decouple = "==3.4"
+django-enumfield = "==2.0.2"
+django-filter = "~=2.4.0"
+gunicorn = "~=20.0.4"
+django-tinymce4-lite = "*"
 
 [dev-packages]
 
