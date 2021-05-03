@@ -22,6 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # tinymce urls
     path("tinymce/", include("tinymce.urls")),
+    path("work/", include("apps.work.urls")),
 ]
 
 # Static and media file urls
