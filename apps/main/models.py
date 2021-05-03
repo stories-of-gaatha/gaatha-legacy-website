@@ -27,4 +27,4 @@ class Page(models.Model):
         verbose_name_plural = "A - Page settings"
 
     def __str__(self):
-        return self.url
+        return str(self.id)
