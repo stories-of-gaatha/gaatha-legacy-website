@@ -8,8 +8,7 @@ Make sure you have docker in your local machine.
 
 Copy .env.example to .env file and update credentials
 ```
-cp .env.example .env 
-```
+cp .env.example .env
 ```
 To starts containers for a service
 ```

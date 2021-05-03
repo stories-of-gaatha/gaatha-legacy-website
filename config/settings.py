@@ -60,7 +60,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -94,12 +94,14 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation\
+         .UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation\
+         .MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation\
+         .CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation\
+         .NumericPasswordValidator"},
 ]
 
 
@@ -142,15 +144,16 @@ TINYMCE_DEFAULT_CONFIG = {
     "menubar": "file edit view insert format tools table help",
     "plugins": (
         "advlist autolink lists link image charmap print preview anchor "
-        "searchreplace visualblocks code fullscreen insertdatetime media table "
-        "paste code help wordcount spellchecker"
+        "searchreplace visualblocks code fullscreen insertdatetime media "
+        "table paste code help wordcount spellchecker"
     ),
     "toolbar": (
         "undo redo | bold italic underline strikethrough | fontselect "
         "fontsizeselect formatselect | alignleft aligncenter alignright "
-        "alignjustify | outdent indent |  numlist bullist checklist | forecolor "
-        "backcolor casechange permanentpen formatpainter removeformat | "
-        "pagebreak | charmap emoticons | fullscreen  preview save print | "
+        "alignjustify | outdent indent |  numlist bullist checklist | "
+        "forecolor backcolor casechange permanentpen formatpainter "
+        "removeformat | pagebreak | charmap emoticons | "
+        "fullscreen  preview save print | "
         "insertfile image media pageembed template link anchor codesample | "
         "a11ycheck ltr rtl | showcomments addcomment code"
     ),
