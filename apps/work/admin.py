@@ -1,5 +1,6 @@
 from django.contrib import admin
 from apps.work.models import Tag, WorkType, Picture, Work
+from apps.work.forms import WorkAdminForm
 
 
 class TagAdmin(admin.ModelAdmin):
@@ -47,6 +48,7 @@ class WorkAdmin(admin.ModelAdmin):
     ]
     list_display_links = ["id"]
     search_fields = ["id"]
+    form = WorkAdminForm
 
 
 admin.site.register(Tag, TagAdmin)

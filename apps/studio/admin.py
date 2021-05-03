@@ -1,5 +1,6 @@
 from django.contrib import admin
 from apps.studio.models import SocialMedia, People
+from apps.studio.forms import PeopleAdminForm
 
 
 class SocialMediaAdmin(admin.ModelAdmin):
@@ -18,6 +19,7 @@ class PeopleAdmin(admin.ModelAdmin):
 
     list_display = ["id", "name", "job_title", "description"]
     list_display_links = ["id", "job_title"]
+    form = PeopleAdminForm
 
 
 admin.site.register(SocialMedia, SocialMediaAdmin)
