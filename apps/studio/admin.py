@@ -8,8 +8,8 @@ class SocialMediaAdmin(admin.ModelAdmin):
     Social media  admin
     """
 
-    list_display = ["id", "url", "icon"]
-    list_display_links = ["id", "url"]
+    list_display = ["id", "url", "social_media_type"]
+    list_display_links = ["id", "social_media_type"]
 
 
 class PeopleAdmin(admin.ModelAdmin):
