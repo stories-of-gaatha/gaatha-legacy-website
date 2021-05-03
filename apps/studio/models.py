@@ -1,4 +1,5 @@
 from django.db import models
+from django_enumfield import enum
 
 
 class SocialMedia(models.Model):
@@ -6,16 +7,33 @@ class SocialMedia(models.Model):
     Social media model
     """
 
-    name = models.CharField(max_length=255)
+    # Class to define social media type
+    class SocialMediaType(enum.Enum):
+        FACEBOOK = 0
+        TWITTER = 1
+        LINKEDIN = 2
+        INSTAGRAM = 3
+
+        __labels__ = {
+            FACEBOOK: "Facebook",
+            TWITTER: "Twitter",
+            LINKEDIN: "Linkedin",
+            INSTAGRAM: "Instagram",
+        }
+
     url = models.CharField(max_length=255)
-    icon = models.ImageField(upload_to="social_media_icons")
+
+    # Social media type
+    social_media_type = enum.EnumField(
+        SocialMediaType, verbose_name="Select social media", null=True, blank=True
+    )
 
     class Meta:
         verbose_name = "Social media"
         verbose_name_plural = "A - Social medias"
 
     def __str__(self):
-        return self.name
+        return self.url
 
 
 class People(models.Model):
