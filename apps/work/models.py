@@ -24,7 +24,7 @@ class WorkType(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name = "Tag"
+        verbose_name = "Work type"
         verbose_name_plural = "B - Work types"
 
     def __str__(self):
