@@ -1,0 +1,6 @@
+from django.urls import path
+from apps.studio import views
+
+urlpatterns = [
+    path("", views.PeopleList.as_view(), name="people_list"),
+]
