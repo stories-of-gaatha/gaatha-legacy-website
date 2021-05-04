@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    {% include "partials/nav.html" %}
+    {% if page %}
+      <p> {{ page.content }} </p>
+    {% endif %}
+
+    {% for work in works %}
+      {% if work.cover_image %}
+        <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
+      {% endif%}
+
+      <p>{{ work.cover_description}}</p>
+    {% endfor %}
+</main>
+{% endblock %}
