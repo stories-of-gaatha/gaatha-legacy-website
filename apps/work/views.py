@@ -33,6 +33,19 @@ class WorkList(FilterView):
         context["work_types"] = WorkType.objects.all()
         return context
 
+class WorkDetail(generic.DetailView):
+    """
+    Work detail
+    """
+    model = Work
+    template_name = "works/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tags"] = Tag.objects.all()
+        context["work_types"] = WorkType.objects.all()
+        return context
+
 def home(request, *args, **kwargs):
     page = Page.objects.filter(page_type=Page.PageType.DASHBOARD)
     context = {

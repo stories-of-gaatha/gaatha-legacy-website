@@ -4,19 +4,12 @@
 {% block content %}
 <main>
     {% include "partials/nav.html" %}
-    {% if page %}
-      <p> {{ page.content }} </p>
+    {% if object %}
+      {% if object.cover_image %}
+        <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
+      {% endif%}
+      <p>{{ object.cover_description}}</p>
     {% endif %}
-
-    {% for work in object_list %}
-      <a href="{% url 'work_detail' work.id%}">
-        {% if work.cover_image %}
-          <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
-        {% endif%}
-
-        <p>{{ work.cover_description}}</p>
-      </a>
-    {% endfor %}
 
     <div class="filter">
       <h1>Tags</h1>
