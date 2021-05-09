@@ -1,17 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href={% static 'css/studio.css' %}
+{% endblock %}
+
 {% block content %}
-<main>
+<main class="studio">
     <!----Need to include Gaatha logo here-->
-    {% include "partials/nav.html" %}
-    {% if page %}
-        <p> {{ page.content}} </p>
-    {% endif %}
-    <!------List the recent works------->
-    {% for work in works %}
-        <p> {{work.cover_description}} </p>
-        <p> {{work.cover_image}} </p>
-    {% endfor %}
+    <div class="navbar">
+        {% include "partials/nav.html" %}
+    </div>
+    <div class="content">
+        <div class="logo">
+            <img src={% static 'logo.jpg' %}>
+        </div>
+        <p class="page-description">|| lorem ipsum dolor sit amet ||</p>
+        {% if page %}
+            <p> {{ page.content}} </p>
+        {% endif %}
+        <!------List the recent works------->
+        <div class="works">
+            {% for work in works %}
+                <div class="work-item">
+                    <div class="image-wrapper">
+                        <img src={{work.cover_image.url}}>
+                    </div>
+                    <p class="work-description"> {{work.cover_description|safe}} </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </main>
 {% endblock %}

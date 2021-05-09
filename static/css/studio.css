@@ -1,0 +1,58 @@
+.studio {
+  display: flex;
+  overflow: hidden;
+  background: black;
+  color: white;
+  flex-grow: 1; }
+  .studio .navbar {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 50px 30px 30px; }
+    .studio .navbar a {
+      color: #888;
+      margin: 8px 0;
+      text-decoration: none;
+      transition: 0.3s fade; }
+      .studio .navbar a:hover {
+        color: #fff; }
+      .studio .navbar a.active {
+        color: #fff; }
+  .studio .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    overflow: auto;
+    padding: 0 calc(25px / 2); }
+    .studio .content .logo {
+      flex-shrink: 0;
+      display: flex;
+      height: 300px;
+      justify-content: center; }
+    .studio .content .page-description {
+      text-align: center;
+      margin-bottom: 50px; }
+    .studio .content .works {
+      display: flex;
+      align-items: flex-end;
+      flex-grow: 1; }
+      .studio .content .works .work-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 calc(25px / 2); }
+        .studio .content .works .work-item .image-wrapper {
+          display: flex;
+          width: 250px; }
+          .studio .content .works .work-item .image-wrapper img {
+            width: 100%; }
+        .studio .content .works .work-item p {
+          width: 250px;
+          height: 20px;
+          text-align: center; }
+        .studio .content .works .work-item .work-description {
+          margin: 0;
+          padding: 0; }
