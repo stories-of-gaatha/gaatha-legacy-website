@@ -8,7 +8,7 @@
     {% for people in object_list %}
       <p>Name: {{people.name}}</p>
       <p>Job title: {{people.job_title}}</p>
-      <p>Description: {{people.description}}</p>
+      <p>Description: {{people.description|safe}}</p>
       <h2>Social medias</h2>
       {% for social_media in people.social_medias.all %}
         <p>{{social_media}}</p>

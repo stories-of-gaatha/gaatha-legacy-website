@@ -14,7 +14,14 @@
           <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
         {% endif%}
 
-        <p>{{ work.cover_description}}</p>
+        </p>{{ work.cover_description|safe}}</p>
+        {% if work.picture.all.exists %}
+          {% for work_picture in work.picture.all %}
+            <img src="{{work_picture.image.url}}" alt="Work Picture", height="50", width="50">
+            <b></b>
+            <p>{{ work_picture.picture.description|safe }}</p>
+          {% endfor %}
+        {% endif %}
       </a>
     {% endfor %}
 

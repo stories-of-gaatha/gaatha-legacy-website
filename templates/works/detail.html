@@ -8,7 +8,7 @@
       {% if object.cover_image %}
         <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
       {% endif%}
-      <p>{{ object.cover_description}}</p>
+      <p>{{ object.cover_description|safe}}</p>
     {% endif %}
 
     <div class="filter">

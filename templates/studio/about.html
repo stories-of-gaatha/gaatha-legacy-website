@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <!----Need to include Gaatha logo here-->
+    {% include "partials/nav.html" %}
+    {% if page %}
+        <p> {{ page.content}} </p>
+    {% endif %}
+    <!------List the recent works------->
+    {% for work in works %}
+        <p> {{work.cover_description}} </p>
+        <p> {{work.cover_image}} </p>
+    {% endfor %}
+</main>
+{% endblock %}

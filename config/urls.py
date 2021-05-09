@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from apps.work.views import home, about
+from apps.work.views import home
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,12 +25,10 @@ urlpatterns = [
     path("tinymce/", include("tinymce.urls")),
     # Home page url
     path("", home, name="home"),
-    # About page url
-    path("about-us/", about, name="about-us"),
     # Work page urls
     path("works/", include("apps.work.urls")),
     # studio urls
-    path("people/", include("apps.studio.urls")),
+    path("studio/", include("apps.studio.urls")),
 ]
 
 # Static and media file urls

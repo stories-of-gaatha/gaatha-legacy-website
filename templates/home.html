@@ -10,11 +10,12 @@
 
     {% for work in works %}
       <a href="{% url 'work_detail' work.id%}">
+        {% if work.artwork %}
+          <img src="{{work.artwork.url}}" alt="Artwork" height="300" width="300">
+        {% endif %}
         {% if work.cover_image %}
           <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
         {% endif%}
-
-        <p>{{ work.cover_description}}</p>
       </a>
     {% endfor %}
 </main>
