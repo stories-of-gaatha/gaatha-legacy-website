@@ -1,9 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href={% static 'css/worklist.css' %}
+{% endblock %}
+
 {% block content %}
-<main>
-    {% include "partials/nav.html" %}
+<main class="work-list">
+    <div class="navbar">
+        <div class="logo">
+            <img src={% static 'logo.png' %}>
+        </div>
+        <div class="filter tags">
+            {% for tag in tags%}
+            <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+            {% endfor %}
+        </div>
+
+        <div class="filter types">
+            {% for work_type in work_types%}
+            <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+            {% endfor %}
+        </div>
+        {% include "partials/nav.html" %}
+    </div>
     {% if page %}
       <p> {{ page.content }} </p>
     {% endif %}
@@ -25,17 +45,5 @@
       </a>
     {% endfor %}
 
-    <div class="filter">
-      <h1>Tags</h1>
-      {% for tag in tags%}
-        <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a> <br>
-      {% endfor %}
-
-      <h1>Types</h1>
-      {% for work_type in work_types%}
-        <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a> <br>
-      {% endfor %}
-
-    </div>
 </main>
 {% endblock %}

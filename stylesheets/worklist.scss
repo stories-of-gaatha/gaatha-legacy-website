@@ -1,7 +1,7 @@
 @import 'base';
 @import 'navbar';
 
-.work-detail{
+.work-list{
     display: flex;
     background: black;
     color: white;
@@ -19,32 +19,10 @@
             margin: 10px 20px;
         }
 
-        .filter{
+        .filter {
             display: flex;
             flex-direction: column;
             margin: 20px 0;
-        }
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        align-items: center;
-        justify-content: flex-end;
-        overflow: auto;
-        padding: 0 50px;
-
-        .cover-image{
-            display: flex;
-
-            img {
-                height: 80vh;
-            }
-        }
-
-        .cover-description {
-            display: flex;
         }
     }
 }

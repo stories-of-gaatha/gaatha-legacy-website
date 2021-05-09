@@ -7,20 +7,20 @@
 
 {% block content %}
 <main class="studio">
-    <!----Need to include Gaatha logo here-->
     <div class="navbar">
         {% include "partials/studio_nav.html"%}
         {% include "partials/nav.html" %}
     </div>
     <div class="content">
         <div class="logo">
-            <img src={% static 'logo.jpg' %}>
+            <img src={% static 'logo.png' %}>
         </div>
+        <!-- Remove Static Page Description and fix page.content -->
         <p class="page-description">|| lorem ipsum dolor sit amet ||</p>
         {% if page %}
             <p> {{ page.content}} </p>
         {% endif %}
-        <!------List the recent works------->
+
         <div class="works">
             {% for work in works %}
                 <div class="work-item">

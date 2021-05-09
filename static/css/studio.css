@@ -1,3 +1,22 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  width: 180px; }
+  .navbar a {
+    padding: 0 30px;
+    color: #888;
+    margin: 8px 0;
+    text-decoration: none;
+    transition: 0.3s fade; }
+    .navbar a:hover {
+      color: #fff; }
+    .navbar a.active {
+      color: #fff; }
+
 .studio {
   display: flex;
   overflow: hidden;
