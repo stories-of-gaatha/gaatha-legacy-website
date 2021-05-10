@@ -1,0 +1,26 @@
+{% with request.resolver_match.view_name as view_name %}
+    <div class="studio-menu">
+        <a
+            {% if view_name == 'about' %}
+                class="studio-item-active"
+            {% else%}
+                class="studi-item-inactive"
+            {% endif %}
+            href="{% url 'about_us'%}"
+        >
+            About Us
+        </a>
+
+        <a
+            {% if view_name == 'people_list' %}
+                class="studio-item-active"
+            {% else%}
+                class="studi-item-inactive"
+            {% endif %}
+            href="{% url 'people_list'%}"
+        >
+            People
+        </a>
+
+    </div>
+{% endwith %}
