@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+  {% if page %}
+    <meta property="og:title" content="{{page.content|striptags}}">
+    <meta name="description" content="{{page.content|striptags}}">
+  {% endif %}
+  {% if object.cover_image %}
+    <meta property="og:image" content="{{object.cover_image.url}}" />
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 <main>
     {% include "partials/nav.html" %}

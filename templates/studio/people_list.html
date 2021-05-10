@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+  {% if page %}
+    <meta property="og:title" content="{{page.content|striptags}}">
+    <meta name="description" content="{{page.content|striptags}}">
+  {% endif %}
+{% endblock %}
+
+
 {% block content %}
 <main>
     {% include "partials/nav.html" %}
