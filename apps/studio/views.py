@@ -20,6 +20,6 @@ def about(request, *args, **kwargs):
     page = Page.objects.filter(page_type=Page.PageType.ABOUT)
     context = {
         "page": page.first if page else None,
-        "works": Work.objects.filter(is_featured_in_dashboard=True).order_by('id')[:4],
+        "works": Work.objects.filter(is_featured_in_dashboard=True).order_by('id')[:5],
     }
     return render(request, "studio/about.html", context)
