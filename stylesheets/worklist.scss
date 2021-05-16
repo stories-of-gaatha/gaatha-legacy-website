@@ -9,7 +9,6 @@
     overflow: hidden;
 
     .navbar {
-        flex-shrink: 0;
         .logo {
             display: flex;
             flex-shrink: 0;
@@ -23,6 +22,74 @@
             display: flex;
             flex-direction: column;
             margin: 20px 0;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        .page-content {
+            display: flex;
+            flex-shrink: 0;
+        }
+
+        .worklist {
+            display: flex;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            overflow: auto;
+
+            .work-item {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                margin: 15px;
+
+                &:nth-child(odd) {
+                    .image-with-description {
+                        flex-direction: row-reverse;
+
+                        .description {
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+
+                .image-with-description {
+                    display: flex;
+
+                    .image {
+                        display: flex;
+                        flex-basis: 50%;
+                        padding: 10px;
+                    }
+                    .description {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        flex-basis: 50%;
+                        padding: 10px;
+                    }
+                }
+                .image-only {
+                    display: flex;
+                }
+
+                a {
+                    color: #888;
+                    margin: 8px 0;
+                    text-decoration: none;
+                    transition: 0.3s fade;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                    &.active {
+                        color: #fff;
+                    }
+                }
+            }
         }
     }
 }
