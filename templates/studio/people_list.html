@@ -19,7 +19,9 @@
         {% for people in object_list %}
         <div class="people-item">
             <div class="left">
-                <div class="picture"></div>
+                <div class="picture">
+                  <img src="{{people.profile_image.url}}" alt="Profile Image">
+                </div>
             </div>
             <div class="right">
                 {{people.description|safe}}

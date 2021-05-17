@@ -1,5 +1,4 @@
-import django_filters
-from django_filters.views import FilterView
+from django.views.generic import ListView
 from django.shortcuts import render
 
 from apps.studio.models import (
@@ -9,7 +8,7 @@ from apps. work.models import Work
 from apps.main.models import Page
 
 
-class PeopleList(FilterView):
+class PeopleList(ListView):
     model = People
     template_name = "studio/people_list.html"
     paginate_by = 10
