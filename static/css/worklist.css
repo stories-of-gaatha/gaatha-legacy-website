@@ -21,8 +21,7 @@
   display: flex;
   background: black;
   color: white;
-  flex-grow: 1;
-  overflow: hidden; }
+  flex-grow: 1; }
   .work-list .navbar .logo {
     display: flex;
     flex-shrink: 0;
@@ -60,6 +59,10 @@
             display: flex;
             flex-basis: 50%;
             padding: 10px; }
+            .work-list .content .worklist .work-item .image-with-description .image img {
+              height: 200px;
+              width: 40vw;
+              object-fit: cover; }
           .work-list .content .worklist .work-item .image-with-description .description {
             display: flex;
             align-items: center;

@@ -1,19 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block stylesheets %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/people.css' %}
+    >
+{% endblock %}
 {% block content %}
-<main>
-    {% include "partials/studio_nav.html"%}
-    {% include "partials/nav.html" %}
-    {% for people in object_list %}
-      <p>Name: {{people.name}}</p>
-      <p>Job title: {{people.job_title}}</p>
-      <p>Description: {{people.description|safe}}</p>
-      <h2>Social medias</h2>
-      {% for social_media in people.social_medias.all %}
-        <p>{{social_media}}</p>
-      {% endfor %}
-    {% endfor %}
+<main class="people">
+    <div class="navbar">
+        <div class="logo">
+            <img src={% static 'logo.png' %}>
+        </div>
+        {% include "partials/nav.html" %}
+    </div>
+    <div class="content">
+        {% for people in object_list %}
+        <div class="people-item">
+            <div class="left">
+                <div class="picture"></div>
+            </div>
+            <div class="right">
+                {{people.description|safe}}
+                <h4>Social medias</h4>
+                {% for social_media in people.social_medias.all %}
+                    {{social_media}}
+                {% endfor %}
+            </div>
+            <div class="bottom">
+                <span>{{people.name}}</span>
+                <span>{{people.job_title}}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
 </main>
 {% endblock %}

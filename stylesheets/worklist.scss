@@ -6,7 +6,6 @@
     background: black;
     color: white;
     flex-grow: 1;
-    overflow: hidden;
 
     .navbar {
         .logo {
@@ -63,6 +62,12 @@
                         display: flex;
                         flex-basis: 50%;
                         padding: 10px;
+
+                        img {
+                            height: 200px;
+                            width: 40vw;
+                            object-fit: cover;
+                        }
                     }
                     .description {
                         display: flex;
