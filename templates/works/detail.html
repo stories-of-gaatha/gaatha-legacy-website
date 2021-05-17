@@ -7,12 +7,14 @@
 {% block content %}
 <main class="work-detail">
     <div class="navbar">
-        <div class="logo">
-            <img
-                src={% static 'logo.png' %}
-                alt="Gaatha logo"
-            >
-        </div>
+        <a href="{% url 'home' %}">
+            <div class="logo">
+                <img
+                    src={% static 'logo.png' %}
+                    alt="Gaatha logo"
+                >
+            </div>
+        </a>
 
         <div class="filter tags">
           {% for tag in tags%}

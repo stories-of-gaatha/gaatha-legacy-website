@@ -10,9 +10,11 @@
 {% block content %}
 <main class="people">
     <div class="navbar">
-        <div class="logo">
-            <img src={% static 'logo.png' %}>
-        </div>
+        <a href="{% url 'home' %}">
+            <div class="logo">
+                <img src={% static 'logo.png' %}>
+            </div>
+        </a>
         {% include "partials/nav.html" %}
     </div>
     <div class="content">
