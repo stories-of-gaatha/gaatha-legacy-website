@@ -9,10 +9,8 @@
 {% with request.resolver_match.view_name as view_name %}
     <div class="studio-menu">
         <a
-            {% if view_name == 'about' %}
+            {% if view_name == 'about_us' %}
                 class="studio-item-active"
-            {% else%}
-                class="studio-item-inactive"
             {% endif %}
             href="{% url 'about_us'%}"
         >
@@ -22,8 +20,6 @@
         <a
             {% if view_name == 'people_list' %}
                 class="studio-item-active"
-            {% else%}
-                class="studio-item-inactive"
             {% endif %}
             href="{% url 'people_list'%}"
         >

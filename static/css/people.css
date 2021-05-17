@@ -1,60 +1,44 @@
-.navbar {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-bottom: 20px;
-  width: 180px; }
-  .navbar a {
-    padding: 0 30px;
-    color: #888;
-    margin: 8px 0;
-    text-decoration: none;
-    transition: 0.3s fade; }
-    .navbar a:hover {
-      color: #fff; }
-    .navbar a.active {
-      color: #fff; }
-
 .people {
   display: flex;
   background: black;
   color: white;
   flex-grow: 1; }
-  .people .navbar .logo {
-    display: flex;
-    flex-shrink: 0;
-    width: 100%;
-    height: 65px;
-    justify-content: flex-start;
-    margin: 10px 20px; }
   .people .content {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    overflow-y: auto;
+    padding-top: 150px; }
     .people .content .people-item {
       display: flex;
       align-items: center;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      width: 50vw;
+      margin: 10px 0; }
       .people .content .people-item .left {
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-        flex-basis: 200px; }
+        flex-basis: 230px; }
         .people .content .people-item .left .picture {
           width: 200px;
           height: 200px;
           background: gray; }
+          .people .content .people-item .left .picture img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover; }
       .people .content .people-item .right {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        flex-basis: calc(100% - 200px);
+        flex-basis: calc(100% - 230px);
         background: white;
         color: black;
         height: 200px;
+        padding: 10px;
         overflow: auto; }
       .people .content .people-item .bottom {
         display: flex;
         flex-direction: column;
-        align-self: flex-start; }
+        align-self: flex-start;
+        padding-top: 5px; }

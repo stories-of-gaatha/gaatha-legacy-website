@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href={% static 'css/worklist.css' %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/worklist.css' %}
+    >
 {% endblock %}
 
 {% block content %}
@@ -13,18 +17,20 @@
                 <img src={% static 'logo.png' %}>
             </div>
         </a>
-        <div class="filter tags">
-            {% for tag in tags%}
-            <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
-            {% endfor %}
-        </div>
+        <div class="navbar-content">
+            <div class="filter tags">
+                {% for tag in tags%}
+                <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+                {% endfor %}
+            </div>
 
-        <div class="filter types">
-            {% for work_type in work_types%}
-            <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
-            {% endfor %}
+            <div class="filter types">
+                {% for work_type in work_types%}
+                <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+                {% endfor %}
+            </div>
+            {% include "partials/nav.html" %}
         </div>
-        {% include "partials/nav.html" %}
     </div>
     <div class="content">
         <div class="page-content">
@@ -35,8 +41,8 @@
 
         <div class="worklist">
             {% for work in object_list %}
-            <div class="work-item">
-                {% if work.cover_description %}
+            {% if work.cover_description %}
+                <div class="work-item">
                     <div class="image-with-description">
                         {% if work.cover_image %}
                             <a class="image" href="{% url 'work_detail' work.id%}">
@@ -46,21 +52,24 @@
                                 >
                             </a>
                         {% endif%}
-                        <a class="description" href="{% url 'work_detail' work.id%}">
-                            <p>{{ work.cover_description|safe}}</p>
-                        </a>
+                        <div class="description">
+                            <a href="{% url 'work_detail' work.id%}">
+                                <p>{{ work.cover_description|safe}}</p>
+                            </a>
+                        </div>
                     </div>
-                {% else %}
+                </div>
+            {% else %}
+                <div class="work-item no-desc">
                     <div class="image-only"/>
                         <a href="{% url 'work_detail' work.id%}">
                             <img src="{{work.cover_image.url}}">
                         </a>
                     </div>
-                {% endif %}
-              </div>
+                </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
-
 </main>
 {% endblock %}

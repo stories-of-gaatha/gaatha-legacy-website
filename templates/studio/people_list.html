@@ -10,19 +10,24 @@
 {% block content %}
 <main class="people">
     <div class="navbar">
-        <a href="{% url 'home' %}">
-            <div class="logo">
+        <div class="logo">
+            <a href="{% url 'home' %}">
                 <img src={% static 'logo.png' %}>
-            </div>
-        </a>
-        {% include "partials/nav.html" %}
+            </a>
+        </div>
+        <div class="navbar-content">
+            {% include "partials/studio_nav.html"%}
+            {% include "partials/nav.html" %}
+        </div>
     </div>
     <div class="content">
         {% for people in object_list %}
         <div class="people-item">
             <div class="left">
                 <div class="picture">
-                  <img src="{{people.profile_image.url}}" alt="Profile Image">
+                    {% if people.profile_image %}
+                        <img src="{{people.profile_image.url}}" alt="Profile Image">
+                    {% endif %}
                 </div>
             </div>
             <div class="right">
