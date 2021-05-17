@@ -1,22 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-<main>
-    {% include "partials/nav.html" %}
-    {% if page %}
-      <p> {{ page.content }} </p>
-    {% endif %}
+{% block stylesheets %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/studio.css' %}
+    >
+{% endblock %}
 
-    {% for work in works %}
-      <a href="{% url 'work_detail' work.id%}">
-        {% if work.artwork %}
-          <img src="{{work.artwork.url}}" alt="Artwork" height="300" width="300">
-        {% endif %}
-        {% if work.cover_image %}
-          <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
-        {% endif%}
-      </a>
-    {% endfor %}
+{% block content %}
+<main class="studio">
+    <div class="navbar">
+        {% include "partials/studio_nav.html"%}
+        {% include "partials/nav.html" %}
+    </div>
+    <div class="content">
+        <div class="logo">
+            <img src={% static 'logo.png' %}>
+        </div>
+        <p class="page-description">|| Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur delectus enim quasi accusantium inventore incidunt pariatur. ||</p>
+        <div class="works">
+            {% for work in works %}
+                <div class="work-item">
+                    <div class="image-wrapper">
+                        <img src={{work.cover_image.url}}>
+                    </div>
+                    <p class="work-description"> {{work.cover_description|safe}} </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </main>
 {% endblock %}
