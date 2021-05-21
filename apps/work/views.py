@@ -52,6 +52,6 @@ def home(request, *args, **kwargs):
     page = Page.objects.filter(page_type=Page.PageType.DASHBOARD)
     context = {
         "page": page.first if page else None,
-        "works": Work.objects.filter(is_featured_in_dashboard=True).order_by('-id')[:3],
+        "works": Work.objects.filter(is_featured_in_dashboard=True).order_by('-id')[:4],
     }
     return render(request, "home.html", context)

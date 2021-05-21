@@ -1,1 +1,111 @@
-@import "~bootstrap/scss/bootstrap";
+@import 'base';
+@import 'navbar';
+.active {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    transform: translateY(0);
+}
+
+#carouselExampleControls{
+    margin-top: 70px;
+    margin-bottom: auto;}
+.image-wrapper{
+    margin-left: 50px;
+}
+.carousels{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+
+    .carousel-items{
+        display: none;
+        width: 100%;
+    .card{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: 300px;
+    }
+    }
+}
+.active{
+    display: block;
+}
+
+
+.studio {
+    display: flex;
+    overflow: hidden;
+    background: black;
+    color: white;
+    flex-grow: 1;
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        padding: 0 50px 30px 30px;
+        .logo {
+            justify-content: left;
+            align-self: flex-start !important;
+            margin-bottom: auto;
+            margin-top: 20px;
+            img{
+                height: auto;
+                width:180px;
+            }
+        }
+
+        a {
+            color: #888;
+            margin: 8px 0;
+            text-decoration: none;
+            transition: 0.3s fade;
+
+            &:hover {
+                color: #fff;
+            }
+            &.active {
+                color: #fff;
+            }
+        }
+
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        overflow: auto;
+        padding: 0 calc(25px / 2);
+
+        .works {
+            display: flex;
+            align-items: flex-end;
+            flex-grow: 1;
+
+            .work-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 calc(25px / 2);
+
+                .image-wrapper {
+                    display: flex;
+
+                    img {
+                        width: auto;
+                        height: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
+
