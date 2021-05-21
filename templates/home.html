@@ -1,35 +1,81 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block stylesheets %}
-    <link
-        rel="stylesheet"
-        type="text/css"
-        href={% static 'css/studio.css' %}
-    >
+<link rel="stylesheet" type="text/css" href={% static 'css/home.css' %}>
 {% endblock %}
-
 {% block content %}
 <main class="studio">
     <div class="navbar">
+        <div class="logo">
+            <img src={% static 'logo.png' %}>
+        </div>
         {% include "partials/studio_nav.html"%}
         {% include "partials/nav.html" %}
     </div>
     <div class="content">
-        <div class="logo">
-            <img src={% static 'logo.png' %}>
-        </div>
-        <p class="page-description">|| Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur delectus enim quasi accusantium inventore incidunt pariatur. ||</p>
-        <div class="works">
-            {% for work in works %}
-                <div class="work-item">
-                    <div class="image-wrapper">
-                        <img src={{work.cover_image.url}}>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for work in works %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    <div class="works">
+                        <div class="work-item">
+                            <div class="image-wrapper">
+                                <img src={{work.cover_image.url}}>
+                            </div>
+                        </div>
                     </div>
-                    <p class="work-description"> {{work.cover_description|safe}} </p>
                 </div>
-            {% endfor %}
+                {% else %}
+                <div class="carousel-item">
+                    <div class="works">
+                        <div class="work-item">
+                            <div class="image-wrapper">
+                                <img src={{work.cover_image.url}}>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for work in works %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    <div class="works">
+                        <div class="work-item">
+                            <div class="image-wrapper">
+                                <img src={{work.cover_image.url}}>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                    <div class="works">
+                        <div class="work-item">
+                            <div class="image-wrapper">
+                                <img src={{work.cover_image.url}}>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </main>
+{% endblock %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        window.initializeCarousel = () => {
+            $("#carouselExampleControls").carousel({ interval: 400 })
+        }
+    });
+</script>
 {% endblock %}
