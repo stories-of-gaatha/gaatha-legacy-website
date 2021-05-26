@@ -2,31 +2,38 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href={% static 'css/work.css' %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/work.css' %}
+    >
 {% endblock %}
 {% block content %}
 <main class="work-detail">
     <div class="navbar">
         <div class="logo">
-            <img
-                src={% static 'logo.png' %}
-                alt="Gaatha logo"
-            >
+            <a href="{% url 'home' %}">
+                <img
+                    src={% static 'logo.png' %}
+                    alt="Gaatha logo"
+                >
+            </a>
         </div>
+        <div class="navbar-content">
+            <div class="filter tags">
+              {% for tag in tags%}
+                <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+              {% endfor %}
+            </div>
 
-        <div class="filter tags">
-          {% for tag in tags%}
-            <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
-          {% endfor %}
+            <div class="filter types">
+              {% for work_type in work_types%}
+                <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+              {% endfor %}
+            </div>
+
+            {% include "partials/nav.html" %}
         </div>
-
-        <div class="filter types">
-          {% for work_type in work_types%}
-            <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
-          {% endfor %}
-        </div>
-
-        {% include "partials/nav.html" %}
     </div>
     <div class="content">
         <!-- Include artwork concept -->

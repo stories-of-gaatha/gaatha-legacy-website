@@ -84,7 +84,12 @@
         align-items: center;
         overflow: auto;
         padding: 0 calc(25px / 2);
-
+        .artwork {
+            img {
+                width:auto;
+                height:35vh;
+            }
+        }
         .works {
             display: flex;
             align-items: flex-end;

@@ -17,22 +17,30 @@
     </div>
     <div class="content">
         <div class="logo">
-            <img src={% static 'logo.png' %}>
+            <a href="{% url 'home' %}">
+                <img src={% static 'logo.png' %}>
+            </a>
         </div>
         <!-- Remove Static Page Description and fix page.content -->
-        <p class="page-description">|| lorem ipsum dolor sit amet ||</p>
+        <p class="page-description">|| lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet ||</p>
         {% if page %}
             <p> {{ page.content}} </p>
         {% endif %}
 
         <div class="works">
             {% for work in works %}
-                <div class="work-item">
-                    <div class="image-wrapper">
-                        <img src={{work.cover_image.url}}>
-                    </div>
-                    <p class="work-description"> {{work.cover_description|safe}} </p>
-                </div>
+            <div class="work-item">
+                <a
+                    href="{% url 'work_detail' work.id %}"
+                >
+                        <div class="image-wrapper">
+                            <img src={{work.cover_image.url}}>
+                        </div>
+                        <div class="work-description-wrapper">
+                            <p class="work-description"> {{work.cover_description|safe}} </p>
+                        </div>
+                </a>
+            </div>
             {% endfor %}
         </div>
     </div>

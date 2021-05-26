@@ -11,15 +11,24 @@
 <main class="people">
     <div class="navbar">
         <div class="logo">
-            <img src={% static 'logo.png' %}>
+            <a href="{% url 'home' %}">
+                <img src={% static 'logo.png' %}>
+            </a>
         </div>
-        {% include "partials/nav.html" %}
+        <div class="navbar-content">
+            {% include "partials/studio_nav.html"%}
+            {% include "partials/nav.html" %}
+        </div>
     </div>
     <div class="content">
         {% for people in object_list %}
         <div class="people-item">
             <div class="left">
-                <div class="picture"></div>
+                <div class="picture">
+                    {% if people.profile_image %}
+                        <img src="{{people.profile_image.url}}" alt="Profile Image">
+                    {% endif %}
+                </div>
             </div>
             <div class="right">
                 {{people.description|safe}}

@@ -1,25 +1,62 @@
+@import 'base';
+
 .navbar {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-bottom: 20px;
-    width: 180px;
+    padding: $spacing-extra-large;
+    width: $width-navbar;
+
+    .logo {
+        display: flex;
+        flex-shrink: 0;
+        justify-content: flex-start;
+        margin: 10px 0;
+
+        a {
+            padding: 0;
+        }
+
+        img {
+            width: 100px;
+            height: 65px;
+            object-fit: cover;
+        }
+    }
 
     a {
-        padding: 0 30px;
-        color: #888;
-        margin: 8px 0;
+        padding: 0 $spacing-extra-large;
+        color: $color-text;
+        margin: $spacing-small-alt 0;
         text-decoration: none;
         transition: 0.3s fade;
 
         &:hover {
-            color: #fff;
+            color: $color-text-on-hover;
         }
-        &.active {
-            color: #fff;
+        &.studio-item-active {
+            color: $color-text-active;
         }
     }
+
+    .navbar-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .studio-menu {
+        display: flex;
+        flex-direction: column;
+        margin: $spacing-super-large 0;
+    }
+
+    .basic {
+        display: flex;
+        flex-direction: column;
+        margin: $spacing-super-large 0;
+    }
+
 
 }

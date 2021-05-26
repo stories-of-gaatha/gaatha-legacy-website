@@ -44,6 +44,12 @@ class People(models.Model):
     name = models.CharField(max_length=255)
     job_title = models.CharField(max_length=255)
     description = models.TextField()
+    profile_image = models.ImageField(
+        upload_to="people",
+        max_length=255,
+        null=True,
+        blank=True
+    )
     social_medias = models.ManyToManyField(SocialMedia)
 
     class Meta:
