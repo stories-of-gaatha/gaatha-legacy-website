@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.work.views import home
+from apps.contact.views import ContactList
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +30,8 @@ urlpatterns = [
     path("works/", include("apps.work.urls")),
     # studio urls
     path("studio/", include("apps.studio.urls")),
+    # contact page url
+    path("contact/", ContactList.as_view(), name="contact_list")
 ]
 
 # Static and media file urls

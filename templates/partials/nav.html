@@ -1,7 +1,7 @@
 {% with request.resolver_match.view_name as view_name %}
 <a href="{% url 'work_list' %}"> Works</a>
 <a href="{% url 'about_us' %}"> Studio </a>
-<a href=""> Contact </a>
+<a href="{% url 'contact_list' %}"> Contact </a>
 <a href=""> Search </a>
 <a
     {% if view_name == 'about' %}
