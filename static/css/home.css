@@ -123,4 +123,41 @@
           display: flex; }
           .studio .content .works .work-item .image-wrapper img {
             width: auto;
-            height: 300px; }
+            height: 500px; }
+
+.fade-out {
+  animation: fadeOut ease 8s infinite;
+  -webkit-animation: fadeOut ease 8s infinite;
+  -moz-animation: fadeOut ease 8s infinite;
+  -o-animation: fadeOut ease 8s infinite;
+  -ms-animation: fadeOut ease 8s infinite; }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
