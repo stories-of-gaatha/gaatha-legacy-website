@@ -21,11 +21,30 @@ class SocialMedia(models.Model):
             INSTAGRAM: "Instagram",
         }
 
+    # class for related type
+    class RelatedType(enum.Enum):
+        PEOPLE = 0
+        CONTACT = 1
+
+        __labels__ = {
+            PEOPLE: "People",
+            CONTACT: "Contact"
+        }
+
     url = models.CharField(max_length=255)
 
     # Social media type
     social_media_type = enum.EnumField(
-        SocialMediaType, verbose_name="Select social media", null=True, blank=True
+        SocialMediaType,
+        verbose_name="Select social media",
+        null=True,
+        blank=True
+    )
+    related_type = enum.EnumField(
+        RelatedType,
+        verbose_name="Select the related type",
+        null=True,
+        blank=True
     )
 
     class Meta:
