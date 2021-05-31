@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href={% static 'css/home.css' %}>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/home.css' %}
+    >
 {% endblock %}
+
 {% block content %}
 <main class="studio">
     <div class="navbar">
         <div class="logo">
             <img src={% static 'logo.png' %}>
         </div>
-        {% include "partials/studio_nav.html"%}
         {% include "partials/nav.html" %}
     </div>
     <div class="content">
@@ -65,7 +70,7 @@
 <script>
     $(document).ready(function () {
         window.initializeCarousel = () => {
-            $("#carouselExampleControls").carousel({ interval: 400 })
+            $("#carouselExampleControls").carousel({ interval: 500 })
         }
     });
 </script>
