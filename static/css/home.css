@@ -50,6 +50,17 @@
   margin-top: 70px;
   margin-bottom: auto; }
 
+.carousel-indicators button {
+  display: inline-block;
+  width: 10px !important;
+  height: 10px !important;
+  margin: 5px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5); }
+
 .image-wrapper {
   margin-left: 50px; }
 
@@ -61,7 +72,10 @@
   height: fit-content; }
   .carousels .carousel-items {
     display: none;
-    width: 100%; }
+    width: 100%;
+    opacity: 0;
+    transition: none;
+    transform: translate3d(0, 0, 0) !important; }
     .carousels .carousel-items .card {
       width: 100%;
       padding: 0;
@@ -69,7 +83,9 @@
       height: 300px; }
 
 .active {
-  display: block; }
+  display: block;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 1; }
 
 .studio {
   display: flex;
@@ -90,7 +106,7 @@
       margin-top: 20px; }
       .studio .navbar .logo img {
         height: auto;
-        width: 180px; }
+        width: 100px; }
     .studio .navbar a {
       color: #888;
       margin: 8px 0;
@@ -120,17 +136,18 @@
         align-items: center;
         padding: 0 calc(25px / 2); }
         .studio .content .works .work-item .image-wrapper {
-          display: flex; }
+          display: flex;
+          height: auto; }
           .studio .content .works .work-item .image-wrapper img {
-            width: auto;
+            max-width: 100%;
             height: 500px; }
 
 .fade-out {
-  animation: fadeOut ease 8s infinite;
-  -webkit-animation: fadeOut ease 8s infinite;
-  -moz-animation: fadeOut ease 8s infinite;
-  -o-animation: fadeOut ease 8s infinite;
-  -ms-animation: fadeOut ease 8s infinite; }
+  animation: fadeOut ease 5s infinite;
+  -webkit-animation: fadeOut ease 5s infinite;
+  -moz-animation: fadeOut ease 5s infinite;
+  -o-animation: fadeOut ease 5s infinite;
+  -ms-animation: fadeOut ease 5s infinite; }
 
 @keyframes fadeOut {
   0% {
