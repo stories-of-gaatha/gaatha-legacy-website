@@ -1,0 +1,37 @@
+{% load static %}
+{% block stylesheets %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/navbar.css' %}
+    >
+{% endblock %}
+{% with request.resolver_match.view_name as view_name %}
+    <div class="home-menu">
+        <a
+            {% if view_name == 'work_list' %}
+                class="studio-item-active"
+            {% endif %}
+            href="{% url 'work_list' %}"
+        >
+            Works
+        </a>
+        <!-- <a
+            {% if view_name == 'about_us' %}
+                class="studio-item-active"
+            {% endif %}
+            href="{% url 'about_us'%}"
+        >
+            About Us
+        </a> -->
+        <a
+            {% if view_name == 'contact' %}
+                class="studio-item-active"
+            {% endif %}
+            href="{% url 'contact' %}"
+        >
+            Contact
+        </a>
+        <a href=""> Search </a>
+    </div>
+{% endwith %}

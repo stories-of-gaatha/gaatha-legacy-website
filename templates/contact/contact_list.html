@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="navbar">
+    <div class="logo">
+        <img src={% static 'logo.png' %}>
+    </div>
+    {% include "partials/nav.html" %}
+</div>
+<div class="contact">
+    {% for contact in object_list %}
+        <h2>ADDRESS</h2>
+        <p> {{ contact.address }} </p>
+        <h2>CONTACT NUMBER</h2>
+        {% for num in contact.contact_number.all %}
+            {{ num.number }}
+            {{ num.contactnumber_type }}
+        {% endfor %}
+        {% for query in contact.query_type.all %}
+            {% if query.email_type == query.email_type.ENQUIRIES %}
+                <p>{{ query.email }}</p>
+                <p>{{ query.email_type }}</p>
+                <p>{{ query.text }}</p>
+            {% elif query.email_type == query.email_type.JOBS %}
+                <p>{{ query.email }}</p>
+                <p>{{ query.email_type }}</p>
+                <p>{{ query.text }}</p>
+            {% endif %}
+        {% endfor %}
+        {% for media in contact.social_media.all %}
+            {% if media.related_type == media.related_type.CONTACT %}
+                <p>{{ media.url }}</p>
+                <p>{{ media.social_media_type }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

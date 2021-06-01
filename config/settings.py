@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "apps.work",
     "apps.studio",
     "apps.main",
+    "apps.contact"
 ]
 
 MIDDLEWARE = [
