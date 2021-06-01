@@ -1,5 +1,4 @@
 {% load static %}
-<!-- templates/base.html -->
 <!DOCTYPE html>
 <html>
 
@@ -14,14 +13,13 @@
       <meta name="description" content="Gaatha">
     {% endblock %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- link rel="shortcut icon" type="image/png" href="{% static 'img/logo.png' %}"/-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     {% block stylesheets %}
     {% endblock %}
 
     <script type="application/javascript">
-        console.info('From head')
     </script>
 </head>
 
@@ -30,9 +28,8 @@
     {% endblock %}
     {% block scripts %}
     {% endblock %}
-    <script type="application/javascript">
-        console.info('From body')
-    </script>
+    <script type="application/javascript"></script>
+    <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,86 @@
+@import 'base';
+
+.studio {
+    display: flex;
+    overflow: hidden;
+    background: black;
+    color: white;
+    flex-grow: 1;
+
+    .navbar{
+        justify-content: flex-end;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        overflow: auto;
+        padding: $spacing-large;
+        padding-top: 150px;
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 100px;
+                width: 250px;
+                object-fit: cover;
+            }
+        }
+
+        .page-description {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .works {
+            display: flex;
+            align-items: flex-end;
+            flex-grow: 1;
+
+            .work-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 $spacing-extra-large;
+
+                &:hover {
+                    a {
+                        color: $color-text-on-hover;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+
+                .image-wrapper {
+                    display: flex;
+                    width: 250px;
+                    height: 200px;
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                p {
+                    width: 250px;
+                    height: 20px;
+                    text-align: center;
+                    text-decoration: none;
+                }
+                .work-description {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+

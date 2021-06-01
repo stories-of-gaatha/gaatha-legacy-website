@@ -1,27 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block stylesheets %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/work.css' %}
+    >
+{% endblock %}
 {% block content %}
-<main>
-    {% include "partials/nav.html" %}
-    {% if object %}
-      {% if object.cover_image %}
-        <img src="{{work.cover_image.url}}" alt="Cover picture" height="200" width="200">
-      {% endif%}
-      <p>{{ object.cover_description}}</p>
-    {% endif %}
+<main class="work-detail">
+    <div class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img
+                    src={% static 'logo.png' %}
+                    alt="Gaatha logo"
+                >
+            </a>
+        </div>
+        <div class="navbar-content">
+            <div class="filter tags">
+              {% for tag in tags%}
+                <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+              {% endfor %}
+            </div>
 
-    <div class="filter">
-      <h1>Tags</h1>
-      {% for tag in tags%}
-        <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a> <br>
-      {% endfor %}
+            <div class="filter types">
+              {% for work_type in work_types%}
+                <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+              {% endfor %}
+            </div>
 
-      <h1>Types</h1>
-      {% for work_type in work_types%}
-        <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a> <br>
-      {% endfor %}
-
+            {% include "partials/nav.html" %}
+        </div>
+    </div>
+    <div class="content">
+        <!-- Include artwork concept -->
+        {% if object %}
+            {% if object.cover_image %}
+            <div class="cover-image">
+                <img
+                    src="{{work.cover_image.url}}"
+                    alt="Cover picture"
+                >
+            </div>
+            {% endif%}
+            <div class="cover-description">
+                <p>{{ object.cover_description|safe}}</p>
+            </div>
+        {% endif %}
     </div>
 </main>
 {% endblock %}

@@ -1,10 +1,10 @@
-from django.views import generic
-from django.shortcuts import render
-from django.http import HttpResponse
-from apps.work.models import Work, Tag, WorkType
-from apps.main.models import Page
 import django_filters
 from django_filters.views import FilterView
+from django.views import generic
+from django.shortcuts import render
+
+from apps.work.models import Work, Tag, WorkType
+from apps.main.models import Page
 
 
 class WorkFilter(django_filters.FilterSet):
@@ -33,6 +33,7 @@ class WorkList(FilterView):
         context["work_types"] = WorkType.objects.all()
         return context
 
+
 class WorkDetail(generic.DetailView):
     """
     Work detail
@@ -46,18 +47,11 @@ class WorkDetail(generic.DetailView):
         context["work_types"] = WorkType.objects.all()
         return context
 
+
 def home(request, *args, **kwargs):
     page = Page.objects.filter(page_type=Page.PageType.DASHBOARD)
     context = {
         "page": page.first if page else None,
-        "works": Work.objects.filter(is_featured_in_dashboard=True),
-    }
-    return render(request, "home.html", context)
-
-def about(request, *args, **kwargs):
-    page = Page.objects.filter(page_type=Page.PageType.ABOUT)
-    context = {
-        "page": page.first if page else None,
-        "works": Work.objects.filter(is_featured_in_dashboard=True),
+        "works": Work.objects.filter(is_featured_in_dashboard=True).order_by('-id')[:3],
     }
     return render(request, "home.html", context)

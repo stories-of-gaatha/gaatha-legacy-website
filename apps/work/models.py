@@ -56,7 +56,7 @@ class Work(models.Model):
     cover_image = models.ImageField(
         null=True, blank=True, upload_to="cover_images", max_length=255
     )
-    cover_description = models.TextField()
+    cover_description = models.TextField(blank=True)
     is_featured_in_dashboard = models.BooleanField(default=False)
     # Work type foreign key
     work_type = models.ForeignKey(WorkType, on_delete=models.PROTECT)

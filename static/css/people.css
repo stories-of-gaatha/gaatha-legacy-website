@@ -1,0 +1,61 @@
+.people {
+  display: flex;
+  background: black;
+  color: white;
+  flex-grow: 1; }
+  .people .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; }
+    .people .content .top {
+      display: flex;
+      padding-top: 150px;
+      justify-content: space-between; }
+      .people .content .top .people-list {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; }
+        .people .content .top .people-list .people-item {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 40vw;
+          margin: 10px 0; }
+          .people .content .top .people-list .people-item .left {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            flex-basis: calc(100px + 10px); }
+            .people .content .top .people-list .people-item .left .picture {
+              width: 100px;
+              height: 100px;
+              background: gray; }
+              .people .content .top .people-list .people-item .left .picture img {
+                width: 100px;
+                height: 100px;
+                filter: grayscale(100%);
+                object-fit: cover; }
+          .people .content .top .people-list .people-item .right {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: flex-end;
+            flex-basis: calc(100% - 160px);
+            background: white;
+            color: black;
+            height: 100px;
+            padding: 10px;
+            overflow: auto; }
+            .people .content .top .people-list .people-item .right .name {
+              opacity: 0;
+              transition: all 0.3s ease-in-out; }
+            .people .content .top .people-list .people-item .right:hover .name {
+              opacity: 1; }
+          .people .content .top .people-list .people-item .bottom {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            padding-top: 5px;
+            width: 150px; }
+            .people .content .top .people-list .people-item .bottom p {
+              margin: 0; }

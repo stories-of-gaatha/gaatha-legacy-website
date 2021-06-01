@@ -1,19 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block stylesheets %}
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/people.css' %}
+    >
+{% endblock %}
 {% block content %}
-<main>
-    {% include "partials/nav.html" %}
+<main class="people">
+    <div class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src={% static 'logo.png' %}>
+            </a>
+        </div>
+        <div class="navbar-content">
+            {% include "partials/studio_nav.html"%}
+            {% include "partials/nav.html" %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="top">
+            <div class="people-list">
+                {% for people in object_list %}
+                <div class="people-item">
+                    <div class="left">
+                        <div class="picture">
+                            {% if people.profile_image %}
+                                <img src="{{people.profile_image.url}}" alt="Profile Image">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="right">
+                        <span class="name">{{people.name}}</span>
+                    </div>
+                    <div class="bottom">
+                        <span>{{people.job_title}}</span>
+                        {{people.description|safe}}
+                        {% for social_media in people.social_medias.all %}
+                            {{social_media}}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="artwork">
+                <img src={% static 'tree-artwork.png' %}>
+            </div>
+        </div>
+        <div class="group-picture">
 
-    {% for people in object_list %}
-      <p>Name: {{people.name}}</p>
-      <p>Job title: {{people.job_title}}</p>
-      <p>Description: {{people.description}}</p>
-      <h2>Social medias</h2>
-      {% for social_media in people.social_medias.all %}
-        <p>{{social_media}}</p>
-      {% endfor %}
-    {% endfor %}
+        </div>
+    </div>
 
 </main>
 {% endblock %}

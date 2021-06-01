@@ -7,24 +7,24 @@
     >
 {% endblock %}
 {% with request.resolver_match.view_name as view_name %}
-    <div class="basic">
+    <div class="studio-menu">
         <a
-            {% if view_name == 'work_list' %}
+            {% if view_name == 'about_us' %}
                 class="studio-item-active"
             {% endif %}
-            href="{% url 'work_list' %}"
+            href="{% url 'about_us'%}"
         >
-            Works
+            About Us
         </a>
+
         <a
-            {% if view_name == 'about_us' or view_name == 'people_list' %}
+            {% if view_name == 'people_list' %}
                 class="studio-item-active"
             {% endif %}
-            href="{% url 'about_us' %}"
+            href="{% url 'people_list'%}"
         >
-            Studio
+            People
         </a>
-        <a href=""> Contact </a>
-        <a href=""> Search </a>
+
     </div>
 {% endwith %}
