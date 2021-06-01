@@ -1,0 +1,116 @@
+@import 'base';
+@import 'navbar';
+
+.contact {
+    display: flex;
+    overflow: hidden;
+    background: black;
+    color: white;
+    flex-grow: 1;
+    justify-content: flex-start;
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0 50px 30px 30px;
+        width: 10%;
+
+        a {
+            color: #888;
+            margin: 8px 0;
+            text-decoration: none;
+            transition: 0.3s fade;
+
+            &:hover {
+                color: #fff;
+            }
+            &.active {
+                color: #fff;
+            }
+        }
+        .logo {
+            justify-content: left;
+            align-self: flex-start !important;
+            margin-bottom: auto;
+            margin-top: 20px;
+            img{
+                height: auto;
+                width:180px;
+            }
+        }
+
+    }
+    .content{
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        justify-content: space-around;
+        overflow: auto;
+        padding: 15% calc(25px / 2);
+        width: 90%;
+        .map{
+            width: 60%;
+            display: block;
+            filter: saturate(0%);
+            transition: .3s filter ease-in-out;
+            .mapouter {
+                position: relative;
+                text-align: right;
+                width: 600px;
+                height: 600px;
+                border-radius: 50% !important;
+                transition: .3s border-radius ease-in-out;
+
+            }
+            .gmap_canvas {
+                overflow: hidden;
+                width: 450px !important;
+                height: 450px !important;
+                border-radius: 50% !important;
+                transition: .3s border-radius ease-in-out;
+
+            }
+            .gmap_iframe {
+                width: 450px !important;
+                height: 450px !important;
+                border-radius: 50% !important;
+                transition: .3s border-radius ease-in-out;
+
+            }
+            &:hover{
+                filter: saturate(100%);
+                .mapouter{
+                    border-radius: 0 !important;
+
+                }
+                .gmap_canvas{
+                    border-radius: 0 !important;
+                }
+                .gmap_iframe{
+                    border-radius: 0 !important;
+                }
+            }
+        }
+        .contact_list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: right;
+        margin-right: 15%;
+        font-size: 12px;
+        flex-shrink: 0;
+        padding-bottom: 60px;
+        width: 180px;
+        color: #888;
+        text-decoration: none;
+        }
+
+
+    }
+
+}
+
+
