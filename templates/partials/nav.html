@@ -25,6 +25,9 @@
             Studio
         </a>
         <a
+            {%if view_name == 'contact_list'%}
+                class="studio-item-active"
+            {% endif %}
             href="{% url 'contact_list' %}"
         >
             Contact
