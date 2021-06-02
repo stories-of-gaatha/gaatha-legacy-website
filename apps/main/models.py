@@ -17,6 +17,12 @@ class Page(models.Model):
 
     content = models.TextField()
 
+    group_picture = models.ImageField(
+        upload_to="group_picture",
+        max_length=255,
+        null=True,
+        blank=True
+    )
     # Page type
     page_type = enum.EnumField(
         PageType, verbose_name="Select page", null=True, blank=True, unique=True

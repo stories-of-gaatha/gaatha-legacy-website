@@ -6,10 +6,12 @@
   .people .content {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; }
+    flex-grow: 1;
+    padding: 25px 100px; }
     .people .content .top {
       display: flex;
-      padding-top: 150px;
+      flex-grow: 1;
+      padding-top: 100px;
       justify-content: space-between; }
       .people .content .top .people-list {
         display: flex;
@@ -19,7 +21,7 @@
           display: flex;
           align-items: center;
           flex-wrap: wrap;
-          width: 40vw;
+          width: 30vw;
           margin: 10px 0; }
           .people .content .top .people-list .people-item .left {
             display: flex;
@@ -55,7 +57,12 @@
             display: flex;
             flex-direction: column;
             align-self: flex-start;
-            padding-top: 5px;
-            width: 150px; }
+            padding-top: 5px; }
             .people .content .top .people-list .people-item .bottom p {
               margin: 0; }
+    .people .content .group-picture {
+      display: flex;
+      height: 200px;
+      background: gray;
+      margin-top: 10px;
+      flex-shrink: 0; }
