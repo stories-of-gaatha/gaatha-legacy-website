@@ -40,14 +40,17 @@
             {% for work in works %}
             <div class="work-item">
                 <a
+                    class="link"
                     href="{% url 'work_detail' work.id %}"
                 >
-                        <div class="image-wrapper">
-                            <img src={{work.cover_image.url}}>
-                        </div>
-                        <div class="work-description-wrapper">
-                            <p class="work-description"> {{work.cover_description|safe}} </p>
-                        </div>
+                    <div class="image-wrapper">
+                        <img src={{work.cover_image.url}}>
+                    </div>
+                    <div class="work-description-wrapper">
+                        <p class="work-description">
+                            {{work.cover_description|safe}}
+                        </p>
+                    </div>
                 </a>
             </div>
             {% endfor %}

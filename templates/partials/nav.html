@@ -10,7 +10,9 @@
     <div class="basic">
         <a
             {% if view_name == 'work_list' %}
-                class="studio-item-active"
+                class="menu-item active"
+            {% else %}
+                class="menu-item"
             {% endif %}
             href="{% url 'work_list' %}"
         >
@@ -18,7 +20,9 @@
         </a>
         <a
             {% if view_name == 'about_us' or view_name == 'people_list' %}
-                class="studio-item-active"
+                class="menu-item active"
+            {% else %}
+                class="menu-item"
             {% endif %}
             href="{% url 'about_us' %}"
         >
@@ -26,12 +30,16 @@
         </a>
         <a
             {%if view_name == 'contact_list'%}
-                class="studio-item-active"
+                class="menu-item active"
+            {% else %}
+                class="menu-item"
             {% endif %}
             href="{% url 'contact_list' %}"
         >
             Contact
         </a>
-        <a href=""> Search </a>
+        <a class="menu-item" href="">
+            Search
+        </a>
     </div>
 {% endwith %}

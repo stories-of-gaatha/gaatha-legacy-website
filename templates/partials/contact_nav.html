@@ -10,23 +10,20 @@
     <div class="home-menu">
         <a
             {% if view_name == 'work_list' %}
-                class="studio-item-active"
+                class="menu-item active"
+            {% else %}
+                class="menu-item"
             {% endif %}
             href="{% url 'work_list' %}"
         >
             Works
         </a>
-        <!-- <a
-            {% if view_name == 'about_us' %}
-                class="studio-item-active"
-            {% endif %}
-            href="{% url 'about_us'%}"
-        >
-            About Us
-        </a> -->
+
         <a
             {% if view_name == 'contact' %}
-                class="studio-item-active"
+                class="menu-item active"
+            {% else %}
+                class="menu-item"
             {% endif %}
             href="{% url 'contact' %}"
         >

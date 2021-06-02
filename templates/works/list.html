@@ -28,13 +28,14 @@
                 {% for tag in tags%}
                     {% if request.GET.tags|to_int == tag.id %}
                         <a
-                            class="active"
+                            class="menu-item active"
                             href="{% url 'work_list' %}?tags={{tag.id}}"
                         >
                         {{tag.name}}
                         </a>
                     {% else %}
                         <a
+                            class="menu-item"
                             href="{% url 'work_list' %}?tags={{tag.id}}"
                         >
                         {{tag.name}}
@@ -46,13 +47,14 @@
             <div class="filter types">
                 {% for work_type in work_types%}
                     {% if request.GET.work_types|to_int == work_type.id %}
-                        <a class="active"
+                        <a class="menu-item active"
                             href="{% url 'work_list' %}?work_types={{work_type.id}}"
                         >
                         {{work_type.name}}
                         </a>
                     {% else %}
                         <a
+                            class="menu-item"
                             href="{% url 'work_list' %}?work_types={{work_type.id}}"
                         >
                         {{work_type.name}}
