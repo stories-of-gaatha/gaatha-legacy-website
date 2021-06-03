@@ -57,6 +57,50 @@
         flex-direction: column;
         margin: $spacing-super-large 0;
     }
+}
+.hamburger {
+    display: none;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+    top: calc(100px / 2 - 12px);
+    background: black;
+    color: white;
+    border: none;
+    font-size: 24px;
+    z-index: 3;
 
+    &:hover {
+        background: white;
+        color: black;
+    }
 
+    @media screen and (max-width: 780px) {
+        display: flex;
+    }
+}
+
+.navbar{
+    @media screen and (max-width: 780px) {
+        width: 100%;
+        height: 100px;
+
+        .logo {
+            position: absolute;
+            left: 25px;
+        }
+
+        .navbar-content {
+            display: none;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+
+    &.responsive {
+        .navbar-content {
+            background: black;
+            display: flex;
+        }
+    }
 }
