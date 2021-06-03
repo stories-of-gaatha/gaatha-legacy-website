@@ -3,7 +3,7 @@
 .studio {
     position: relative;
     display: flex;
-    background: black;
+    background: $color-background;
     color: white;
     flex-grow: 1;
 
@@ -16,14 +16,14 @@
 
         &.responsive {
             position: absolute;
-            display: initial;
-            background: black;
+            display: flex;
+            background: $color-background;
             width: 100%;
 
             a {
                 &:hover {
-                    background: white;
-                    color: black;
+                    background: $color-accent;
+                    color: $color-background;
                 }
             }
         }
@@ -76,12 +76,12 @@
                 padding: 0 $spacing-extra-large;
 
                 &:hover {
-                    a {
-                        color: $color-text-on-hover;
+                    .link {
+                        color: $color-text-active;
                     }
                 }
 
-                a {
+                .link {
                     text-decoration: none;
                     color: $color-text;
                 }

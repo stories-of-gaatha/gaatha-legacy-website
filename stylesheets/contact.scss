@@ -1,10 +1,13 @@
 @import 'base';
 
+$font-size-normal: 12px;
+$font-size-title: 14px;
+
 .contact {
     display: flex;
     overflow: hidden;
-    background: black;
-    color: white;
+    background: $color-background;
+    color: $color-text;
     flex-grow: 1;
     justify-content: flex-start;
 
@@ -13,9 +16,9 @@
         flex-direction: row;
         flex-grow: 1;
         justify-content: space-around;
+        align-items: center;
         overflow: auto;
-        padding: 15% calc(25px / 2);
-        width: 90%;
+        padding: 0 calc(25px / 2);
 
         .map {
             display: block;
@@ -65,14 +68,37 @@
         .contact_list {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             text-align: right;
             font-size: 12px;
             flex-shrink: 0;
-            padding-bottom: 60px;
-            width: 180px;
-            color: #888;
+            color: $color-text;
             text-decoration: none;
+
+            .contact-item {
+                font-size: $font-size-normal;
+                margin: $spacing-extra-large 0;
+
+                .title {
+                    font-size: $font-size-title;
+                    color: $color-text-active;
+                    margin-bottom: $spacing-small-alt;
+                }
+
+                .contact-details {
+                    margin-bottom: $spacing-small;
+
+                    &.contact-link {
+                        display: block;
+                        text-decoration: none;
+                        color: $color-text;
+
+                        &:hover {
+                            color: $color-text-active;
+                        }
+                    }
+                }
+            }
         }
     }
 }

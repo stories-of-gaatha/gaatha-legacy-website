@@ -3,8 +3,8 @@
 
 .work-detail{
     display: flex;
-    background: black;
-    color: white;
+    background: $color-background;
+    color: $color-text;
     flex-grow: 1;
     overflow: hidden;
 
@@ -19,7 +19,7 @@
             margin: 20px 0;
 
             .active {
-                color: white;
+                color: $color-text-active;
             }
         }
     }
