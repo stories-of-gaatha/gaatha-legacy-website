@@ -75,6 +75,5 @@
     .people .content .group-picture {
       display: flex;
       height: 200px;
-      background: gray;
       margin-top: 10px;
       flex-shrink: 0; }
