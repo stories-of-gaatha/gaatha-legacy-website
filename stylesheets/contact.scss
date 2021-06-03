@@ -8,7 +8,7 @@
     flex-grow: 1;
     justify-content: flex-start;
 
-    .content{
+    .content {
         display: flex;
         flex-direction: row;
         flex-grow: 1;
@@ -16,10 +16,12 @@
         overflow: auto;
         padding: 15% calc(25px / 2);
         width: 90%;
-        .map{
+
+        .map {
             display: block;
             filter: saturate(0%);
             transition: .3s filter ease-in-out;
+
             .mapouter {
                 position: relative;
                 text-align: right;
@@ -42,38 +44,37 @@
                 height: 450px !important;
                 border-radius: 50% !important;
                 transition: .3s border-radius ease-in-out;
-
             }
-            &:hover{
+
+            &:hover {
                 filter: saturate(100%);
-                .mapouter{
+
+                .mapouter {
                     border-radius: 0 !important;
 
                 }
-                .gmap_canvas{
+                .gmap_canvas {
                     border-radius: 0 !important;
                 }
-                .gmap_iframe{
+                .gmap_iframe {
                     border-radius: 0 !important;
                 }
             }
         }
-        .contact_list{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: right;
-        font-size: 12px;
-        flex-shrink: 0;
-        padding-bottom: 60px;
-        width: 180px;
-        color: #888;
-        text-decoration: none;
+
+        .contact_list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: right;
+            font-size: 12px;
+            flex-shrink: 0;
+            padding-bottom: 60px;
+            width: 180px;
+            color: #888;
+            text-decoration: none;
         }
-
-
     }
-
 }
 
 
