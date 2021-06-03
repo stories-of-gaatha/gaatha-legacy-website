@@ -80,7 +80,7 @@
   align-items: stretch;
   transform: translateY(0); }
 
-#home-carousel {
+#carouselExampleControls {
   margin-top: 70px;
   margin-bottom: auto; }
 
@@ -110,11 +110,6 @@
     opacity: 0;
     transition: none;
     transform: translate3d(0, 0, 0) !important; }
-    .carousels .carousel-items .card {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      height: 300px; }
 
 .active {
   display: block;
@@ -157,6 +152,10 @@
     align-items: center;
     overflow: auto;
     padding: 0 calc(25px / 2); }
+    .studio .content .artwork img {
+      width: auto;
+      height: 45vh !important;
+      max-height: 45vh; }
     .studio .content .works {
       display: flex;
       align-items: flex-end;
@@ -168,44 +167,16 @@
         padding: 0 calc(25px / 2); }
         .studio .content .works .work-item .image-wrapper {
           display: flex;
-          height: auto; }
+          height: 45vh !important;
+          max-height: 45vh; }
           .studio .content .works .work-item .image-wrapper img {
-            max-width: 100%;
-            height: 500px; }
+            max-width: 65vw; }
 
-.fade-out {
-  animation: fadeOut ease 5s infinite;
-  -webkit-animation: fadeOut ease 5s infinite;
-  -moz-animation: fadeOut ease 5s infinite;
-  -o-animation: fadeOut ease 5s infinite;
-  -ms-animation: fadeOut ease 5s infinite; }
+.fade-in {
+  animation: fadeIn ease-in-out 5s infinite; }
 
-@keyframes fadeOut {
+@keyframes fadeIn {
   0% {
-    opacity: 1; }
+    opacity: 0; }
   100% {
-    opacity: 0; } }
-
-@-moz-keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@-o-keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@-ms-keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
+    opacity: 1; } }
