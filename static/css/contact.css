@@ -14,15 +14,14 @@
     padding: 15% calc(25px / 2);
     width: 90%; }
     .contact .content .map {
-      width: 60%;
       display: block;
       filter: saturate(0%);
       transition: .3s filter ease-in-out; }
       .contact .content .map .mapouter {
         position: relative;
         text-align: right;
-        width: 600px;
-        height: 600px;
+        width: 450px;
+        height: 450px;
         border-radius: 50% !important;
         transition: .3s border-radius ease-in-out; }
       .contact .content .map .gmap_canvas {
@@ -49,7 +48,6 @@
       flex-direction: column;
       justify-content: space-between;
       text-align: right;
-      margin-right: 15%;
       font-size: 12px;
       flex-shrink: 0;
       padding-bottom: 60px;
