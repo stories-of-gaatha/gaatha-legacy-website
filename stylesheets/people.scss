@@ -9,53 +9,82 @@
     .content {
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
-        padding-top: 150px;
+        flex-grow: 1;
 
-        .people-item {
+        .top {
             display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 50vw;
-            margin: $spacing-medium 0;
+            padding-top: 150px;
+            justify-content: space-between;
 
-            .left {
+            .people-list {
                 display: flex;
                 flex-direction: column;
-                flex-shrink: 0;
-                flex-basis: 230px;
+                overflow-y: auto;
 
-                .picture {
-                    width: 200px;
-                    height: 200px;
-                    background: gray;
+                .people-item {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    width: 40vw;
+                    margin: $spacing-medium 0;
 
-                    img {
-                        width: 200px;
-                        height: 200px;
-                        object-fit: cover;
+                    .left {
+                        display: flex;
+                        flex-direction: column;
+                        flex-shrink: 0;
+                        flex-basis: calc(#{$width-display-picture} + #{$spacing-medium});
+
+                        .picture {
+                            width: $width-display-picture;
+                            height: $height-display-picture;
+                            background: gray;
+
+                            img {
+                                width: $width-display-picture;
+                                height: $height-display-picture;
+                                filter: grayscale(100%);
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .right {
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                        justify-content: flex-end;
+                        flex-basis: calc(100% - 160px);
+                        background: white;
+                        color: black;
+                        height: $height-display-picture;
+                        padding: $spacing-medium;
+                        overflow: auto;
+
+                        .name {
+                            opacity: 0;
+                            transition: all 0.3s ease-in-out;
+                        }
+                        &:hover {
+                            .name {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        display: flex;
+                        flex-direction: column;
+                        align-self: flex-start;
+                        padding-top: $spacing-small;
+                        width: 150px;
+
+                        p {
+                            margin: 0;
+                        }
                     }
                 }
             }
-
-            .right {
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
-                flex-basis: calc(100% - 230px);
-                background: white;
-                color: black;
-                height: 200px;
-                padding: $spacing-medium;
-                overflow: auto;
-            }
-
-            .bottom {
-                display: flex;
-                flex-direction: column;
-                align-self: flex-start;
-                padding-top: $spacing-small;
-            }
         }
+
     }
 }

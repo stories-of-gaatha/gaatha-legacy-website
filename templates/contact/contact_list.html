@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href={% static 'css/contact.css' %}>
+{% endblock %}
+
+{% block content %}
+
+<div class="contact">
+    <div class="navbar">
+        <div class="logo">
+            <img src={% static 'logo.png' %}>
+        </div>
+        {% include "partials/nav.html" %}
+    </div>
+    <div class="content">
+        <div class="map">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=University of Oxford&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    <a href="https://www.gaatha.com/"></a>
+                </div>
+            </div>
+        </div>
+        <div class="contact_list">
+            {% for contact in object_list %}
+            <div class="address">
+                <h6>Address</h6>
+                <p> {{ contact.address }} </p>
+            </div>
+            <div class="contact-number">
+                <h6>Telephone</h6>
+                {% for num in contact.contact_number.all %}
+                {{ num.number }}
+                {{ num.contactnumber_type }}
+                {% endfor %}
+            </div>
+            <div class="enquires">
+                <h6>Enquires</h6>
+                {% for query in contact.query_type.all %}
+                {% if query.email_type == query.email_type.ENQUIRIES %}
+                <p>{{ query.email }}</p>
+                <p>{{ query.email_type }}</p>
+                <p>{{ query.text }}</p>
+                <h6>Jobs</h6>
+                {% elif query.email_type == query.email_type.JOBS %}
+                <p>{{ query.email }}</p>
+                <p>{{ query.email_type }}</p>
+                <p>{{ query.text }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="social-media">
+                <h6>Social Media</h6>
+                {% for media in contact.social_media.all %}
+                {% if media.related_type == media.related_type.CONTACT %}
+                <p>{{ media.url }}</p>
+                <p>{{ media.social_media_type }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
