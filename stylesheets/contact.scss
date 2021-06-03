@@ -1,5 +1,4 @@
 @import 'base';
-@import 'navbar';
 
 .contact {
     display: flex;
@@ -43,8 +42,8 @@
                 width:180px;
             }
         }
-
     }
+
     .content{
         display: flex;
         flex-direction: row;
@@ -96,21 +95,18 @@
             }
         }
         .contact_list{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: right;
-        font-size: 12px;
-        flex-shrink: 0;
-        padding-bottom: 60px;
-        width: 180px;
-        color: #888;
-        text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: right;
+            font-size: 12px;
+            flex-shrink: 0;
+            padding-bottom: 60px;
+            width: 180px;
+            color: #888;
+            text-decoration: none;
         }
-
-
     }
-
 }
 
 
