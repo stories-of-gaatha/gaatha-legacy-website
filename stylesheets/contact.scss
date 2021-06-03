@@ -1,5 +1,4 @@
 @import 'base';
-@import 'navbar';
 
 .contact {
     display: flex;
@@ -9,40 +8,6 @@
     flex-grow: 1;
     justify-content: flex-start;
 
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-        justify-content: flex-end;
-        align-items: flex-start;
-        padding: 0 50px 30px 30px;
-        width: 10%;
-
-        a {
-            color: #888;
-            margin: 8px 0;
-            text-decoration: none;
-            transition: 0.3s fade;
-
-            &:hover {
-                color: #fff;
-            }
-            &.active {
-                color: #fff;
-            }
-        }
-        .logo {
-            justify-content: left;
-            align-self: flex-start !important;
-            margin-bottom: auto;
-            margin-top: 20px;
-            img{
-                height: auto;
-                width:180px;
-            }
-        }
-
-    }
     .content{
         display: flex;
         flex-direction: row;
