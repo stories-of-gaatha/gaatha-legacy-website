@@ -15,10 +15,11 @@
         flex-shrink: 0;
         justify-content: flex-end;
         align-items: flex-start;
-        padding: 0 50px 30px 30px;
-        width: 10%;
+        padding-bottom: 20px;
+        width: 180px;
 
         a {
+            padding: 0 30px;
             color: #888;
             margin: 8px 0;
             text-decoration: none;
@@ -31,6 +32,7 @@
                 color: #fff;
             }
         }
+
         .logo {
             justify-content: left;
             align-self: flex-start !important;
@@ -52,15 +54,14 @@
         padding: 15% calc(25px / 2);
         width: 90%;
         .map{
-            width: 60%;
             display: block;
             filter: saturate(0%);
             transition: .3s filter ease-in-out;
             .mapouter {
                 position: relative;
                 text-align: right;
-                width: 600px;
-                height: 600px;
+                width: 450px;
+                height: 450px;
                 border-radius: 50% !important;
                 transition: .3s border-radius ease-in-out;
 
@@ -99,7 +100,6 @@
         flex-direction: column;
         justify-content: space-between;
         text-align: right;
-        margin-right: 15%;
         font-size: 12px;
         flex-shrink: 0;
         padding-bottom: 60px;
