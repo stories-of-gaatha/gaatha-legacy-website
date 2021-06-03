@@ -77,9 +77,3 @@
       height: 200px;
       margin-top: 10px;
       flex-shrink: 0; }
-    .people .content .group-picture {
-      display: flex;
-      height: 200px;
-      background: gray;
-      margin-top: 10px;
-      flex-shrink: 0; }

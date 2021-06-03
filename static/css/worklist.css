@@ -17,6 +17,9 @@
   @media screen and (max-width: 780px) {
     .work-list .navbar {
       align-items: flex-start; } }
+  @media screen and (max-width: 780px) {
+    .work-list .navbar {
+      align-items: flex-start; } }
   .work-list .content {
     display: flex;
     flex-direction: column;
