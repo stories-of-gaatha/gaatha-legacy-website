@@ -168,3 +168,6 @@ TINYMCE_DEFAULT_CONFIG = {
     ),
     "custom_undo_redo_levels": 10,
 }
+
+ARTWORK_IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg', 'svg']
+COVERIMAGE_IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']

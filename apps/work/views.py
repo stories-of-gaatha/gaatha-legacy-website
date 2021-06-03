@@ -1,3 +1,4 @@
+from django.db.models import Q
 import django_filters
 from django_filters.views import FilterView
 from django.views import generic
@@ -31,6 +32,43 @@ class WorkList(FilterView):
         context = super().get_context_data(**kwargs)
         context["tags"] = Tag.objects.all()
         context["work_types"] = WorkType.objects.all()
+        work_with_cover_description = Work.objects.exclude(
+            Q(cover_description__isnull=True) | Q(cover_description__exact="")
+        )
+        work_with_no_cover_description = Work.objects.filter(
+            Q(cover_description__exact="")
+        )
+
+        data = []
+        non_description = {"type": "non-description", "item": []}
+        non_description_start_index = 0
+        non_description_batch_size = 4
+        description_start_index = 0
+        description_batch_size = 1
+        for i in range(Work.objects.count()):
+            if i % 5 == 0:
+                non_description["item"].append(
+                    work_with_no_cover_description[
+                        non_description_start_index:non_description_batch_size
+                    ]
+                )
+                data.append(non_description)
+                data.append(
+                    {
+                        "type": "description",
+                        "item": {
+                            work_with_cover_description[
+                                description_start_index:description_batch_size
+                            ]
+                        },
+                    }
+                )
+                description_start_index += 1
+                non_description_start_index += 4
+                description_batch_size += 1
+                non_description_batch_size += 4
+                non_description = {"type": "non-description", "item": []}
+        context["works"] = data
         return context
 
 
