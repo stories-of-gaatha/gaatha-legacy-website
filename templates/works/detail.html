@@ -45,7 +45,7 @@
 
             <div class="filter types">
                 {% for work_type in work_types%}
-                    {% if work_type.work_set.first == object %}
+                    {% if object in work_type.work_set.all %}
                         <a class="active"
                             href="{% url 'work_list' %}?work_types={{work_type.id}}"
                         >

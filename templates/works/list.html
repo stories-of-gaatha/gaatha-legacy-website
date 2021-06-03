@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load tag_library %}
 
 {% block stylesheets %}
     <link
@@ -25,13 +26,38 @@
         <div class="navbar-content">
             <div class="filter tags">
                 {% for tag in tags%}
-                <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+                    {% if request.GET.tags|to_int == tag.id %}
+                        <a
+                            class="active"
+                            href="{% url 'work_list' %}?tags={{tag.id}}"
+                        >
+                        {{tag.name}}
+                        </a>
+                    {% else %}
+                        <a
+                            href="{% url 'work_list' %}?tags={{tag.id}}"
+                        >
+                        {{tag.name}}
+                        </a>
+                    {% endif %}
                 {% endfor %}
             </div>
 
             <div class="filter types">
                 {% for work_type in work_types%}
-                <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+                    {% if request.GET.work_types|to_int == work_type.id %}
+                        <a class="active"
+                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
+                        >
+                        {{work_type.name}}
+                        </a>
+                    {% else %}
+                        <a
+                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
+                        >
+                        {{work_type.name}}
+                        </a>
+                    {% endif %}
                 {% endfor %}
             </div>
             {% include "partials/nav.html" %}

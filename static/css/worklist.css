@@ -12,6 +12,8 @@
     display: flex;
     flex-direction: column;
     margin: 20px 0; }
+    .work-list .navbar .filter .active {
+      color: white; }
   @media screen and (max-width: 780px) {
     .work-list .navbar {
       align-items: flex-start; } }

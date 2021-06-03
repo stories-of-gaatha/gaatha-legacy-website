@@ -58,7 +58,9 @@
         </div>
         <div class="group-picture">
             {% for p in page %}
-                <img src="{{p.group_picture.url}}" alt="Group Image">
+                {% if p.group_picture %}
+                    <img src="{{p.group_picture.url}}" alt="Group Image">
+                {% endif %}
             {% endfor %}
         </div>
     </div>
