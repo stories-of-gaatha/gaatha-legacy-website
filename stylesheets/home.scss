@@ -8,9 +8,10 @@
     transform: translateY(0);
 }
 
-#carouselExampleControls{
+#carouselExampleControls {
     margin-top: 70px;
-    margin-bottom: auto;}
+    margin-bottom: auto;
+}
 
 .carousel-indicators button {
   display: inline-block;
@@ -23,9 +24,11 @@
   border-radius: 50%;
   box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
 }
-.image-wrapper{
+
+.image-wrapper {
     margin-left: 50px;
 }
+
 .carousels{
     width: 100%;
     display: flex;
@@ -126,14 +129,16 @@
         }
     }
 }
+
 .fade-in {
     animation: fadeIn ease-in-out 5s infinite;
-  }
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     0% {
-      opacity:0;
+        opacity:0;
     }
     100% {
-      opacity:1;
+        opacity:1;
     }
-  }
+}

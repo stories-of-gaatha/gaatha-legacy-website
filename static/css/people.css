@@ -3,11 +3,18 @@
   background: black;
   color: white;
   flex-grow: 1; }
+  @media screen and (max-width: 780px) {
+    .people {
+      flex-direction: column; } }
   .people .content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     padding: 25px 100px; }
+    @media screen and (max-width: 780px) {
+      .people .content {
+        align-items: center;
+        padding: 0; } }
     .people .content .top {
       display: flex;
       flex-grow: 1;
@@ -16,12 +23,14 @@
       .people .content .top .people-list {
         display: flex;
         flex-direction: column;
-        overflow-y: auto; }
+        overflow-y: auto;
+        z-index: 1; }
         .people .content .top .people-list .people-item {
           display: flex;
           align-items: center;
           flex-wrap: wrap;
-          width: 30vw;
+          width: 500px;
+          max-width: 80vw;
           margin: 10px 0; }
           .people .content .top .people-list .people-item .left {
             display: flex;
@@ -60,6 +69,9 @@
             padding-top: 5px; }
             .people .content .top .people-list .people-item .bottom p {
               margin: 0; }
+      .people .content .top .artwork {
+        position: absolute;
+        right: 20px; }
     .people .content .group-picture {
       display: flex;
       height: 200px;
