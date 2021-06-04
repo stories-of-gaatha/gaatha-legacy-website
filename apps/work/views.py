@@ -40,14 +40,14 @@ class WorkList(FilterView):
         )
 
         data = []
-        non_description = {"type": "non-description", "item": []}
+        non_description = {"type": "non-description", "items": []}
         non_description_start_index = 0
         non_description_batch_size = 4
         description_start_index = 0
         description_batch_size = 1
         for i in range(Work.objects.count()):
             if i % 5 == 0:
-                non_description["item"].append(
+                non_description["items"].append(
                     work_with_no_cover_description[
                         non_description_start_index:non_description_batch_size
                     ]
@@ -56,7 +56,7 @@ class WorkList(FilterView):
                 data.append(
                     {
                         "type": "description",
-                        "item": {
+                        "items": {
                             work_with_cover_description[
                                 description_start_index:description_batch_size
                             ]
@@ -67,7 +67,7 @@ class WorkList(FilterView):
                 non_description_start_index += 4
                 description_batch_size += 1
                 non_description_batch_size += 4
-                non_description = {"type": "non-description", "item": []}
+                non_description = {"type": "non-description", "items": []}
         context["works"] = data
         return context
 
