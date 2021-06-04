@@ -1,5 +1,6 @@
 @import 'base';
 
+$color-background-preload: #fff;
 body, html {
     padding: 0;
     margin: 0;
@@ -12,7 +13,92 @@ body, html {
 
 
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    $height-progress-bar: 4px;
+
+    .pre-load {
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: $color-background-preload;
+
+        .progress-bar {
+            height: $height-progress-bar;
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+
+            .progress {
+                background-color: $color-background;
+                width: 50%;
+                transition: width 1s ease-in-out;
+                animation: progress-to-50 1s;
+            }
+        }
+    }
+
+    .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 4;
+
+        .top-mask {
+            background-color: $color-background-preload;
+            height: calc(50vw - #{$height-progress-bar} / 2);
+            animation: top-mask-lift 1s forwards;
+        }
+        .bottom-mask {
+            background-color: $color-background-preload;
+            height: calc(50vw - #{$height-progress-bar} / 2);
+            animation: bottom-mask-lift 1s forwards;
+        }
+    }
+
+    .content-wrapper {
+        display: none;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.4);
+
+    }
+
+}
+@keyframes progress-to-50 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes top-mask-lift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes bottom-mask-lift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
 }

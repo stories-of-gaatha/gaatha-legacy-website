@@ -24,12 +24,64 @@
     {% endblock %}
 
     <script type="application/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const preLoad = document.getElementById('pre-load');
+            const content = document.getElementById('content-wrapper');
+            const progress = document.getElementById('progress');
+            const mask = document.getElementById('mask');
+            const topMask = document.getElementById('top-mask');
+            let animationEnded = false;
+            let transitionEnded = false;
+            const handleTransitionEnd = () => {
+                preLoad.remove();
+                mask.style.display = 'flex';
+                content.style.display = 'flex';
+                transitionEnded = true;
+            };
+            const handleAnimationEnd = () => {
+                window.setTimeout(() => {
+                    progress.style.width = '100%';
+                }, 0);
+                animationEnded = true;
+                window.setTimeout(() => {
+                    if(!transitionEnded) {
+                        handleTransitionEnd();
+                    }
+                }, 1200);
+            };
+            progress.addEventListener('animationend', handleAnimationEnd);
+            progress.addEventListener('transitionend', handleTransitionEnd);
+
+            window.setTimeout(() => {
+                if(!animationEnded) {
+                    handleAnimationEnd();
+                }
+            }, 1200);
+
+            topMask.addEventListener('animationend', () => {
+                mask.remove();
+            });
+        });
     </script>
 </head>
 
 <body>
-    {% block content %}
-    {% endblock %}
+    <div id="pre-load" class="pre-load">
+        <div class="progress-bar">
+            <div id="progress" class="progress">
+            </div>
+        </div>
+    </div>
+
+    <div id="mask" class="mask">
+        <div id="top-mask" class="top-mask">top</div>
+        <div class="bottom-mask">bottom</div>
+    </div>
+
+    <div id="content-wrapper" class="content-wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
     {% block scripts %}
     {% endblock %}
     <script type="application/javascript"></script>

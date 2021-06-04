@@ -109,6 +109,12 @@
             height: 200px;
             margin-top: $spacing-medium;
             flex-shrink: 0;
+
+            .image {
+                width: 100%;
+                object-fit: cover;
+                object-position: center center;
+            }
         }
     }
 }
