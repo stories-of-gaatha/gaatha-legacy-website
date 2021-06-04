@@ -82,6 +82,7 @@
                     display: flex;
 
                     .image {
+                        position: relative;
                         display: flex;
                         justify-content: space-between;
                         flex-basis: calc(50% - 30px);
@@ -94,9 +95,19 @@
                             transition: all 0.5s ease-in-out;
                         }
 
+                        .title {
+                            display: none;
+                            position: absolute;
+                            bottom: -24px;
+                        }
+
                         &:hover {
                             img {
                                 filter: grayscale(0%);
+                            }
+
+                            .title {
+                                display: block;
                             }
                         }
                     }
@@ -117,10 +128,20 @@
                         img {
                             filter: grayscale(0);
                         }
+                        .title {
+                            display: block;
+                        }
                     }
 
                     .image {
+                        position: relative;
                         width: 100%;
+                    }
+
+                    .title {
+                        display: none;
+                        position: absolute;
+                        bottom: -24px;
                     }
 
                     img {

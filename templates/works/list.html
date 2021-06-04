@@ -83,6 +83,9 @@
                                     src="{{work.cover_image.url}}"
                                     alt="Cover picture"
                                 >
+                                <div class="title">
+                                    {{work.title}}
+                                </div>
                             </a>
                         {% endif%}
                         <div class="description">
@@ -102,6 +105,9 @@
                             href="{% url 'work_detail' work.id%}"
                         >
                             <img src="{{work.cover_image.url}}">
+                            <div class="title">
+                                {{work.title}}
+                            </div>
                         </a>
                     </div>
                 </div>
