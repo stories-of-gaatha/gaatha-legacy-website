@@ -56,7 +56,7 @@
             margin: 50px 0;
         }
 
-        .works {
+        .works-wrapper {
             display: flex;
             align-items: flex-end;
             flex-grow: 1;
@@ -64,47 +64,52 @@
             overflow: auto;
             justify-content: space-evenly;
 
-            @media screen and (max-width: 780px) {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .work-item {
+            .works {
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 0 $spacing-extra-large;
+                align-items: flex-start;
 
-                &:hover {
-                    .link {
-                        color: $color-text-active;
-                    }
+                @media screen and (max-width: 780px) {
+                    flex-direction: column;
+                    align-items: center;
                 }
 
-                .link {
-                    text-decoration: none;
-                    color: $color-text;
-                }
-
-                .image-wrapper {
+                .work-item {
                     display: flex;
-                    width: 250px;
-                    height: 200px;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0 $spacing-extra-large;
 
-                    img {
-                        width: 100%;
-                        object-fit: cover;
+                    &:hover {
+                        .link {
+                            color: $color-text-active;
+                        }
                     }
-                }
-                p {
-                    width: 250px;
-                    height: 20px;
-                    text-align: center;
-                    text-decoration: none;
-                }
-                .work-description {
-                    margin: 0;
-                    padding: 0;
+
+                    .link {
+                        text-decoration: none;
+                        color: $color-text;
+                    }
+
+                    .image-wrapper {
+                        display: flex;
+                        width: 250px;
+                        height: 200px;
+
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    p {
+                        width: 250px;
+                        height: 20px;
+                        text-align: center;
+                        text-decoration: none;
+                    }
+                    .work-description {
+                        margin: 0;
+                        padding: 0;
+                    }
                 }
             }
         }
