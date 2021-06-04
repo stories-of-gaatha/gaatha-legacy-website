@@ -73,40 +73,55 @@
         </div>
 
         <div class="worklist">
-            {% for work in work_with_cover_description %}
-                <div class="work-item">
-                    <div class="image-with-description">
-                        {% if work.cover_image %}
-                            <a class="image" href="{% url 'work_detail' work.id%}">
-                                <img
-                                    src="{{work.cover_image.url}}"
-                                    alt="Cover picture"
+          {% for work_dict in works%}
+            {% if work_dict|lookup:'type' == "description" %}
+              {% with items=work_dict|lookup:'items' %}
+                {% for work_queryset in items%}
+                  {% for work in work_queryset %}
+                    <div class="work-item">
+                        <div class="image-with-description">
+                            {% if work.cover_image %}
+                                <a class="image" href="{% url 'work_detail' work.id%}">
+                                    <img
+                                        src="{{work.cover_image.url}}"
+                                        alt="Cover picture"
+                                    >
+                                </a>
+                            {% endif%}
+                            <div class="description">
+                                <a
+                                    href="{% url 'work_detail' work.id%}"
                                 >
-                            </a>
-                        {% endif%}
-                        <div class="description">
-                            <a
-                                href="{% url 'work_detail' work.id%}"
-                            >
-                                <p>{{ work.cover_description|safe}}</p>
-                            </a>
+                                    <p>{{ work.cover_description|safe}}</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-            {% for work in work_with_no_cover_description %}
-                <div class="work-item no-desc">
-                    <div class="image-only"/>
-                        <a
-                            class="image"
-                            href="{% url 'work_detail' work.id%}"
-                        >
-                            <img src="{{work.cover_image.url}}">
-                        </a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+                  {% endfor%}
+                {% endfor %}
+              {% endwith %}
+            {% endif %}
+
+            {% if work_dict|lookup:'type' == "non-description" %}
+              {% with items=work_dict|lookup:'items' %}
+              {% for work_queryset in items%}
+                {% for work in work_queryset %}
+                  <div class="work-item no-desc">
+                      <div class="image-only">
+                          <a
+                              class="image"
+                              href="{% url 'work_detail' work.id%}"
+                          >
+                              <img src="{{work.cover_image.url}}">
+                          </a>
+                      </div>
+                  </div>
+                {% endfor%}
+              {% endfor %}
+              {% endwith %}
+            {% endif %}
+          {% endfor %}
+      </div>
     </div>
 </main>
 {% endblock %}
