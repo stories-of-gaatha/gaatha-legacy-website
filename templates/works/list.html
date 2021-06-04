@@ -56,7 +56,13 @@
                     <div class="image-with-description">
                         {% if work.cover_image %}
                             <a class="image" href="{% url 'work_detail' work.id%}">
-                                <img src="{{work.cover_image.url}}" alt="Cover picture">
+                                <img
+                                    src="{{work.cover_image.url}}"
+                                    alt="Cover picture"
+                                >
+                                <div class="title">
+                                    {{work.title}}
+                                </div>
                             </a>
                         {% endif%}
                         <div class="description">
@@ -66,20 +72,14 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            {% endif %}
-            {% endfor %}
-      </div>
-=======
-            </div>
-=======
->>>>>>> Added work-scroll
             {% else %}
                 <div class="work-item no-desc">
                     <div class="image-only">
                         <a class="image" href="{% url 'work_detail' work.id%}">
                             <img src="{{work.cover_image.url}}">
+                            <div class="title">
+                                {{work.title}}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -89,7 +89,6 @@
     </div>
         {% endfor %}
     </div>
->>>>>>> Add Styling in work detail
     </div>
 </main>
 {% endblock %}
