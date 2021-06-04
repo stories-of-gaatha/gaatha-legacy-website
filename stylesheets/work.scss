@@ -3,16 +3,24 @@
 
 .work-detail{
     display: flex;
-    background: black;
-    color: white;
+    background: $color-background;
+    color: $color-text;
     flex-grow: 1;
     overflow: hidden;
+
+    @media screen and (max-width: 780px) {
+        flex-direction: column;
+    }
 
     .navbar {
         .filter{
             display: flex;
             flex-direction: column;
             margin: 20px 0;
+
+            .active {
+                color: $color-text-active;
+            }
         }
     }
 
@@ -26,6 +34,7 @@
 
         .cover-image{
             display: flex;
+            margin: 25px 0;
             width: 70vw;
             height: 50vh;
 
@@ -37,6 +46,9 @@
 
         .cover-description {
             display: flex;
+            margin: 15px 0;
+            text-align: center;
+            width: 70vw;
         }
     }
 }

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load tag_library %}
 
 {% block stylesheets %}
     <link
@@ -11,22 +12,54 @@
 
 {% block content %}
 <main class="work-list">
-    <div class="navbar">
-        <a href="{% url 'home' %}">
-            <div class="logo">
-                <img src={% static 'logo.png' %}>
-            </div>
+    <button
+        href="javascript:void(0);"
+        class="hamburger"
+        onclick="clickFunction()"
+    >
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <div id="myNavbar" class="navbar">
+        <a class="logo" href="{% url 'home' %}">
+            <img src={% static 'logo.png' %}>
         </a>
         <div class="navbar-content">
             <div class="filter tags">
                 {% for tag in tags%}
-                <a href="{% url 'work_list' %}?tags={{tag.id}}"> {{tag.name}} </a>
+                    {% if request.GET.tags|to_int == tag.id %}
+                        <a
+                            class="menu-item active"
+                            href="{% url 'work_list' %}?tags={{tag.id}}"
+                        >
+                        {{tag.name}}
+                        </a>
+                    {% else %}
+                        <a
+                            class="menu-item"
+                            href="{% url 'work_list' %}?tags={{tag.id}}"
+                        >
+                        {{tag.name}}
+                        </a>
+                    {% endif %}
                 {% endfor %}
             </div>
 
             <div class="filter types">
                 {% for work_type in work_types%}
-                <a href="{% url 'work_list' %}?work_types={{work_type.id}}"> {{work_type.name}} </a>
+                    {% if request.GET.work_types|to_int == work_type.id %}
+                        <a class="menu-item active"
+                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
+                        >
+                        {{work_type.name}}
+                        </a>
+                    {% else %}
+                        <a
+                            class="menu-item"
+                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
+                        >
+                        {{work_type.name}}
+                        </a>
+                    {% endif %}
                 {% endfor %}
             </div>
             {% include "partials/nav.html" %}
@@ -53,7 +86,9 @@
                             </a>
                         {% endif%}
                         <div class="description">
-                            <a href="{% url 'work_detail' work.id%}">
+                            <a
+                                href="{% url 'work_detail' work.id%}"
+                            >
                                 <p>{{ work.cover_description|safe}}</p>
                             </a>
                         </div>
@@ -62,7 +97,10 @@
             {% else %}
                 <div class="work-item no-desc">
                     <div class="image-only"/>
-                        <a href="{% url 'work_detail' work.id%}">
+                        <a
+                            class="image"
+                            href="{% url 'work_detail' work.id%}"
+                        >
                             <img src="{{work.cover_image.url}}">
                         </a>
                     </div>

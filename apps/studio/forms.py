@@ -9,7 +9,7 @@ class PeopleAdminForm(forms.ModelForm):
     People admin form
     """
 
-    description = forms.CharField(widget=TinyMCE(attrs={"cols": 80, "rows": 30}))
+    description = forms.CharField(widget=TinyMCE(attrs={"cols": 80, "rows": 30}), required=False)
 
     class Meta:
         model = People

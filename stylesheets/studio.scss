@@ -1,24 +1,43 @@
 @import 'base';
 
 .studio {
+    position: relative;
     display: flex;
-    overflow: hidden;
-    background: black;
+    background: $color-background;
     color: white;
     flex-grow: 1;
 
     .navbar{
         justify-content: flex-end;
+
+        @media screen and (max-width: 780px) {
+            display: none;
+        }
+
+        &.responsive {
+            position: absolute;
+            display: flex;
+            background: $color-background;
+            width: 100%;
+
+            a {
+                &:hover {
+                    background: $color-accent;
+                    color: $color-background;
+                }
+            }
+        }
     }
+
 
     .content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         align-items: center;
-        overflow: auto;
         padding: $spacing-large;
         padding-top: 150px;
+        overflow: auto;
 
         .logo {
             flex-shrink: 0;
@@ -41,6 +60,14 @@
             display: flex;
             align-items: flex-end;
             flex-grow: 1;
+            width: 100%;
+            overflow: auto;
+            justify-content: space-evenly;
+
+            @media screen and (max-width: 780px) {
+                flex-direction: column;
+                align-items: center;
+            }
 
             .work-item {
                 display: flex;
@@ -49,12 +76,12 @@
                 padding: 0 $spacing-extra-large;
 
                 &:hover {
-                    a {
-                        color: $color-text-on-hover;
+                    .link {
+                        color: $color-text-active;
                     }
                 }
 
-                a {
+                .link {
                     text-decoration: none;
                     color: $color-text;
                 }

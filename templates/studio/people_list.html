@@ -9,7 +9,14 @@
 {% endblock %}
 {% block content %}
 <main class="people">
-    <div class="navbar">
+    <button
+        href="javascript:void(0);"
+        class="hamburger"
+        onclick="clickFunction()"
+    >
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <div id="myNavbar" class="navbar">
         <div class="logo">
             <a href="{% url 'home' %}">
                 <img src={% static 'logo.png' %}>
@@ -50,7 +57,11 @@
             </div>
         </div>
         <div class="group-picture">
-
+            {% for p in page %}
+                {% if p.group_picture %}
+                    <img src="{{p.group_picture.url}}" alt="Group Image">
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 

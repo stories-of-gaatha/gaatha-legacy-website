@@ -1,19 +1,30 @@
 .studio {
+  position: relative;
   display: flex;
-  overflow: hidden;
   background: black;
   color: white;
   flex-grow: 1; }
   .studio .navbar {
     justify-content: flex-end; }
+    @media screen and (max-width: 780px) {
+      .studio .navbar {
+        display: none; } }
+    .studio .navbar.responsive {
+      position: absolute;
+      display: initial;
+      background: black;
+      width: 100%; }
+      .studio .navbar.responsive a:hover {
+        background: white;
+        color: black; }
   .studio .content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
-    overflow: auto;
     padding: 15px;
-    padding-top: 150px; }
+    padding-top: 150px;
+    overflow: auto; }
     .studio .content .logo {
       flex-shrink: 0;
       display: flex;
@@ -28,7 +39,14 @@
     .studio .content .works {
       display: flex;
       align-items: flex-end;
-      flex-grow: 1; }
+      flex-grow: 1;
+      width: 100%;
+      overflow: auto;
+      justify-content: space-evenly; }
+      @media screen and (max-width: 780px) {
+        .studio .content .works {
+          flex-direction: column;
+          align-items: center; } }
       .studio .content .works .work-item {
         display: flex;
         flex-direction: column;

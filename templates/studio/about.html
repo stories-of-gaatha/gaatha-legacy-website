@@ -11,9 +11,18 @@
 
 {% block content %}
 <main class="studio">
-    <div class="navbar">
-        {% include "partials/studio_nav.html"%}
-        {% include "partials/nav.html" %}
+    <button
+        href="javascript:void(0);"
+        class="hamburger"
+        onclick="clickFunction()"
+    >
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <div id="myNavbar" class="navbar">
+        <div class="navbar-content">
+            {% include "partials/studio_nav.html"%}
+            {% include "partials/nav.html" %}
+        </div>
     </div>
     <div class="content">
         <div class="logo">
@@ -31,14 +40,17 @@
             {% for work in works %}
             <div class="work-item">
                 <a
+                    class="link"
                     href="{% url 'work_detail' work.id %}"
                 >
-                        <div class="image-wrapper">
-                            <img src={{work.cover_image.url}}>
-                        </div>
-                        <div class="work-description-wrapper">
-                            <p class="work-description"> {{work.cover_description|safe}} </p>
-                        </div>
+                    <div class="image-wrapper">
+                        <img src={{work.cover_image.url}}>
+                    </div>
+                    <div class="work-description-wrapper">
+                        <p class="work-description">
+                            {{work.cover_description|safe}}
+                        </p>
+                    </div>
                 </a>
             </div>
             {% endfor %}

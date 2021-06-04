@@ -3,6 +3,7 @@
 .navbar {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     flex-shrink: 0;
     padding: $spacing-extra-large;
     width: $width-navbar;
@@ -13,10 +14,6 @@
         justify-content: flex-start;
         margin: 10px 0;
 
-        a {
-            padding: 0;
-        }
-
         img {
             width: 100px;
             height: 65px;
@@ -24,17 +21,15 @@
         }
     }
 
-    a {
+    .menu-item {
         padding: 0 $spacing-extra-large;
         color: $color-text;
         margin: $spacing-small-alt 0;
         text-decoration: none;
         transition: 0.3s fade;
 
-        &:hover {
-            color: $color-text-on-hover;
-        }
-        &.studio-item-active {
+        &:hover,
+        &.active {
             color: $color-text-active;
         }
     }
@@ -57,6 +52,51 @@
         flex-direction: column;
         margin: $spacing-super-large 0;
     }
+}
 
+.hamburger {
+    display: none;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+    top: calc(100px / 2 - 12px);
+    background: $color-background;
+    color: $color-text;
+    border: none;
+    font-size: 24px;
+    z-index: 3;
 
+    &:hover {
+        background: $color-accent;
+        color: $color-background;
+    }
+
+    @media screen and (max-width: 780px) {
+        display: flex;
+    }
+}
+
+.navbar{
+    @media screen and (max-width: 780px) {
+        width: 100%;
+        height: 100px;
+
+        .logo {
+            position: absolute;
+            left: 25px;
+        }
+
+        .navbar-content {
+            display: none;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+
+    &.responsive {
+        .navbar-content {
+            background: $color-background;
+            display: flex;
+        }
+    }
 }

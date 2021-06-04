@@ -14,6 +14,11 @@ class PeopleList(ListView):
     paginate_by = 10
     ordering = ["-id"]
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page'] = Page.objects.filter(page_type=Page.PageType.PEOPLE)
+        print(context['page'])
+        return context
 
 def about(request, *args, **kwargs):
     page = Page.objects.filter(page_type=Page.PageType.ABOUT)
