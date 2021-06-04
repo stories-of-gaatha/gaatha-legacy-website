@@ -2,7 +2,9 @@ version: "3.7"
 services:
   style:
     image: catchdigital/node-sass
-    command: sh -c "node-sass -r -w -o /code/static/css/ /code/stylesheets/ "
+    command: sh -c "
+      node-sass -r -o /code/static/css/ /code/stylesheets/
+      && node-sass -r -w -o /code/static/css/ /code/stylesheets/"
     volumes:
       - .:/code
   db:
