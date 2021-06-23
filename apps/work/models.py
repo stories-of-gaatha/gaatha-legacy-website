@@ -69,5 +69,21 @@ class Work(models.Model):
         verbose_name_plural = "D - Works"
 
     def __str__(self):
-        # String representation of press dossier
         return str(self.id)
+
+
+class WorkFeature(models.Model):
+    """
+    Work feature
+    """
+    feature_name = models.CharField(max_length=256)
+    feature_description = models.CharField(max_length=256)
+    # Work foreign key
+    work = models.ForeignKey(Work, on_delete=models.PROTECT)
+
+    class Meta:
+        verbose_name = "Work Feature"
+        verbose_name_plural = "E - Work Features"
+
+    def __str__(self):
+        return str(self.feature_name)
