@@ -29,12 +29,9 @@
             align-items: flex-start;
         }
     }
-.flow{
-    overflow: auto;
-    white-space: nowrap;
 
     .content {
-        display: inline-block;
+        display: flex;
         flex-direction: column;
         overflow-y: auto;
 
@@ -172,5 +169,4 @@
             }
         }
     }
-}
 }

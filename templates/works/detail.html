@@ -46,6 +46,7 @@
         </div>
     </div>
     <div class="content">
+<<<<<<< HEAD
         <div class="content-first">
             <!-- Include artwork concept -->
             {% if object %}
@@ -69,8 +70,27 @@
             {% endif%}
             {% endif %}
         </div>
+=======
+        <!-- Include artwork concept -->
+        {% if object %}
+        {% if object.cover_image %}
+        <div class="cover-image">
+            <img src="{{work.cover_image.url}}" alt="Cover picture">
+        </div>
+        {% endif%}
     </div>
+    <div class="work-feature">
+        {% if work_features %}
+        {% for work_feature in work_features %}
+        {{ work_feature.feature_name}} <br>
+        {{work_feature.feature_description}} <br>
+        {% endfor %}
+        {% endif %}
+>>>>>>> b6b416b (Add work feature)
+    </div>
+    {% endif %}
 </main>
+<<<<<<< HEAD
 {% endblock %}
 {% block scripts %}
 <script>
@@ -86,3 +106,6 @@
     });
 </script>
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> b6b416b (Add work feature)
