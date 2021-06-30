@@ -7,6 +7,7 @@
     color: $color-text;
     flex-grow: 1;
     overflow: hidden;
+    height: 100vh;
 
     @media screen and (max-width: 780px) {
         flex-direction: column;
@@ -29,11 +30,10 @@
         flex-direction: column;
         flex-grow: 1;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         overflow: auto;
 
         .cover-image{
-            display: flex;
             margin: 25px 0;
             width: 70vw;
             height: 50vh;
@@ -51,31 +51,15 @@
             width: 70vw;
         }
     }
-    .content-fadeIn{
+
+    @media screen and (max-width: 780px) {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+
+    .work-feature{
         display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-        overflow: auto;
-
-        .cover-image{
-            display: flex;
-            margin: 25px 0;
-            width: 70vw;
-            height: 50vh;
-
-            img {
-                object-fit: cover;
-                width: 100%;
-            }
-        }
-
-        .cover-description {
-            display: flex;
-            margin: 15px 0;
-            text-align: center;
-            width: 70vw;
-        }
+        align-items: flex-end;
+        margin-bottom: 0 35px 85px 0;
     }
 }
