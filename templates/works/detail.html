@@ -57,37 +57,35 @@
             {% endif %}
         </div>
         <div class="content-sec">
-            <div class="cover-artwork">
-                <img src={{work.artwork.url}} />
             <div class="cover-description">
-                {% if object.picture %}
-                {% for picture in object.picture.all %}
-                <p>{{ picture.description }}</p>
-                {% endfor %}
-                {% endif %}
+                <img src={{work.artwork.url}} />
+                <p>{{ object.cover_description|safe}}</p>
             </div>
-        </div>
-            <div class="cover-image">
-                {% if object %}
-                {% if object.picture %}
-                {% for picture in object.picture.all %}
-                <img src={{ picture.image.url }}>
+            {% if object %}
+            {% if object.cover_image %}
+            <div id="cover-image" class="cover-image">
+                <img src="{{work.cover_image.url}}" alt="Cover picture">
             </div>
-            {% endfor %}
-            {% endif %}
+            {% endif%}
             {% endif %}
         </div>
-    </div>
-    <div class="work-feature">
-        {% if work_features %}
-        {% for work_feature in work_features %}
-        {{ work_feature.feature_name}} <br>
-        {{work_feature.feature_description}} <br>
-        {% endfor %}
-        {% endif %}
     </div>
 </main>
 
+{% endblock %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        window.initializeCarousel = () => {
+            $("#carouselExampleControls").carousel({ interval: 500, pause: "none" });
+        }
+        $(".content-sec").hide();
+        setTimeout(function () {
+            $('.content-first').hide();
+            $(".content-sec").show();
+        }, 5000);
+    });
+</script>
 {% endblock %}
 {% block scripts %}
 <script>
