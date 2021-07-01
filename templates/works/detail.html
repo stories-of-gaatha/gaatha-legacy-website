@@ -62,11 +62,17 @@
                 <p>{{ object.cover_description|safe}}</p>
             </div>
             {% if object %}
-            {% if object.cover_image %}
-            <div id="cover-image" class="cover-image">
-                <img src="{{work.cover_image.url}}" alt="Cover picture">
-            </div>
-            {% endif%}
+              {% if object.cover_image %}
+              <div id="cover-image" class="cover-image">
+                  <img src="{{work.cover_image.url}}" alt="Cover picture">
+              </div>
+              {% endif%}
+              {% if object.picture %}
+                {% for picture in object.picture.all %}
+                  Image: <img src={{ picture.image.url }}>
+                  Description: {{ picture.description }}
+                {% endfor %}
+              {% endif %}
             {% endif %}
         </div>
     </div>
