@@ -79,7 +79,7 @@ class WorkFeature(models.Model):
     feature_name = models.CharField(max_length=256)
     feature_description = models.CharField(max_length=256)
     # Work foreign key
-    work = models.ForeignKey(Work, on_delete=models.PROTECT)
+    work = models.ForeignKey(Work, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Work Feature"
