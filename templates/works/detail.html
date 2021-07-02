@@ -57,22 +57,24 @@
             {% endif %}
         </div>
         <div class="content-sec">
-            <div class="cover-description">
+            <div class="cover-artwork">
                 <img src={{work.artwork.url}} />
-                <p>{{ object.cover_description|safe}}</p>
-            </div>
-            {% if object %}
-              {% if object.cover_image %}
-              <div id="cover-image" class="cover-image">
-                  <img src="{{work.cover_image.url}}" alt="Cover picture">
-              </div>
-              {% endif%}
-              {% if object.picture %}
+            <div class="cover-description">
+                {% if object.picture %}
                 {% for picture in object.picture.all %}
-                  Image: <img src={{ picture.image.url }}>
-                  Description: {{ picture.description }}
+                <p>{{ picture.description }}</p>
                 {% endfor %}
-              {% endif %}
+                {% endif %}
+            </div>
+        </div>
+            <div class="cover-image">
+                {% if object %}
+                {% if object.picture %}
+                {% for picture in object.picture.all %}
+                <img src={{ picture.image.url }}>
+            </div>
+            {% endfor %}
+            {% endif %}
             {% endif %}
         </div>
     </div>
@@ -85,6 +87,7 @@
         {% endif %}
     </div>
 </main>
+
 {% endblock %}
 {% block scripts %}
 <script>
