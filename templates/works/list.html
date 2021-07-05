@@ -3,20 +3,12 @@
 {% load tag_library %}
 
 {% block stylesheets %}
-    <link
-        rel="stylesheet"
-        type="text/css"
-        href={% static 'css/worklist.css' %}
-    >
+<link rel="stylesheet" type="text/css" href={% static 'css/worklist.css' %}>
 {% endblock %}
 
 {% block content %}
 <main class="work-list">
-    <button
-        href="javascript:void(0);"
-        class="hamburger"
-        onclick="clickFunction()"
-    >
+    <button href="javascript:void(0);" class="hamburger" onclick="clickFunction()">
         <ion-icon name="menu"></ion-icon>
     </button>
     <div id="myNavbar" class="navbar">
@@ -26,88 +18,69 @@
         <div class="navbar-content">
             <div class="filter tags">
                 {% for tag in tags%}
-                    {% if request.GET.tags|to_int == tag.id %}
-                        <a
-                            class="menu-item active"
-                            href="{% url 'work_list' %}?tags={{tag.id}}"
-                        >
-                        {{tag.name}}
-                        </a>
-                    {% else %}
-                        <a
-                            class="menu-item"
-                            href="{% url 'work_list' %}?tags={{tag.id}}"
-                        >
-                        {{tag.name}}
-                        </a>
-                    {% endif %}
+                {% if request.GET.tags|to_int == tag.id %}
+                <a class="menu-item active" href="{% url 'work_list' %}?tags={{tag.id}}">
+                    {{tag.name}}
+                </a>
+                {% else %}
+                <a class="menu-item" href="{% url 'work_list' %}?tags={{tag.id}}">
+                    {{tag.name}}
+                </a>
+                {% endif %}
                 {% endfor %}
             </div>
 
             <div class="filter types">
                 {% for work_type in work_types%}
-                    {% if request.GET.work_types|to_int == work_type.id %}
-                        <a class="menu-item active"
-                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
-                        >
-                        {{work_type.name}}
-                        </a>
-                    {% else %}
-                        <a
-                            class="menu-item"
-                            href="{% url 'work_list' %}?work_types={{work_type.id}}"
-                        >
-                        {{work_type.name}}
-                        </a>
-                    {% endif %}
+                {% if request.GET.work_types|to_int == work_type.id %}
+                <a class="menu-item active" href="{% url 'work_list' %}?work_types={{work_type.id}}">
+                    {{work_type.name}}
+                </a>
+                {% else %}
+                <a class="menu-item" href="{% url 'work_list' %}?work_types={{work_type.id}}">
+                    {{work_type.name}}
+                </a>
+                {% endif %}
                 {% endfor %}
             </div>
             {% include "partials/nav.html" %}
         </div>
     </div>
     <div class="content">
-        <div class="page-content">
-            {% if page %}
-              <p> {{ page.content }} </p>
-            {% endif %}
-        </div>
-
         <div class="worklist">
             {% for work in object_list %}
             {% if work.cover_description %}
-                <div class="work-item">
-                    <div class="image-with-description">
-                        {% if work.cover_image %}
-                            <a class="image" href="{% url 'work_detail' work.id%}">
-                                <img
-                                    src="{{work.cover_image.url}}"
-                                    alt="Cover picture"
-                                >
-                            </a>
-                        {% endif%}
-                        <div class="description">
-                            <a
-                                href="{% url 'work_detail' work.id%}"
-                            >
-                                <p>{{ work.cover_description|safe|truncatechars:50 }}</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <div class="work-item no-desc">
-                    <div class="image-only"/>
-                        <a
-                            class="image"
-                            href="{% url 'work_detail' work.id%}"
-                        >
-                            <img src="{{work.cover_image.url}}">
+            <div class="work-item">
+                <div class="image-with-description">
+                    {% if work.cover_image %}
+                    <a class="image" href="{% url 'work_detail' work.id%}">
+                        <img src="{{work.cover_image.url}}" alt="Cover picture">
+                    </a>
+                    {% endif%}
+                    <div class="description">
+                        <a href="{% url 'work_detail' work.id%}">
+                            <p>{{ work.cover_description|safe|truncatechars:50 }}</p>
                         </a>
                     </div>
                 </div>
+<<<<<<< HEAD
             {% endif %}
             {% endfor %}
       </div>
+=======
+            </div>
+            {% else %}
+            <div class="work-item no-desc">
+                <div class="image-only" />
+                <a class="image" href="{% url 'work_detail' work.id%}">
+                    <img src="{{work.cover_image.url}}">
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+>>>>>>> Add Styling in work detail
     </div>
 </main>
 {% endblock %}

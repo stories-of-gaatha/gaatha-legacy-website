@@ -32,16 +32,11 @@
 
     .content {
         display: flex;
-        flex-direction: column;
         overflow-y: auto;
+        flex-wrap: nowrap;
 
         @media screen and (max-width: 780px) {
             flex-grow: 1;
-        }
-
-        .page-content {
-            display: flex;
-            flex-shrink: 0;
         }
 
         .worklist {
