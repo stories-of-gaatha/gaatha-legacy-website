@@ -32,42 +32,38 @@ class WorkList(FilterView):
         context = super().get_context_data(**kwargs)
         context["tags"] = Tag.objects.all()
         context["work_types"] = WorkType.objects.all()
-        work_with_cover_description = Work.objects.exclude(
-            Q(cover_description__isnull=True) | Q(cover_description__exact="")
-        )
-        work_with_no_cover_description = Work.objects.filter(
-            Q(cover_description__exact="")
-        )
+        cover_description_empty_filter = Q(cover_description__isnull=True) | Q(cover_description='')
+        work_with_cover_description = Work.objects.exclude(cover_description_empty_filter)
+        work_with_no_cover_description = Work.objects.filter(cover_description_empty_filter)
 
         data = []
         non_description = {"type": "non-description", "items": []}
+        with_description = {"type": "description", "items": []}
         non_description_start_index = 0
         non_description_batch_size = 4
         description_start_index = 0
         description_batch_size = 1
-        for i in range(Work.objects.count()):
-            if i % 5 == 0:
+        column_size = 5
+        for i in range(0, Work.objects.count(), column_size):
+            if i % column_size == 0:
                 non_description["items"].append(
                     work_with_no_cover_description[
                         non_description_start_index:non_description_batch_size
                     ]
                 )
                 data.append(non_description)
-                data.append(
-                    {
-                        "type": "description",
-                        "items": {
-                            work_with_cover_description[
-                                description_start_index:description_batch_size
-                            ]
-                        },
-                    }
+                with_description["items"].append(
+                    work_with_cover_description[
+                        description_start_index:description_batch_size
+                    ]
                 )
+                data.append(with_description)
                 description_start_index += 1
                 non_description_start_index += 4
                 description_batch_size += 1
                 non_description_batch_size += 4
                 non_description = {"type": "non-description", "items": []}
+                with_description = {"type": "description", "items": []}
         context["works"] = data
         return context
 

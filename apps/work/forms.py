@@ -19,16 +19,18 @@ class WorkAdminForm(forms.ModelForm):
 
     def clean_artwork(self):
         artwork = self.cleaned_data.get("artwork", False)
-        extension = str(artwork).split('.')[-1]
-        file_type = extension.lower()
-        if file_type not in settings.ARTWORK_IMAGE_FILE_TYPES:
-            raise ValidationError(f'Unsupported file format:Supported are{settings.ARTWORK_IMAGE_FILE_TYPES}')
-        return artwork
+        if artwork:
+            extension = str(artwork).split('.')[-1]
+            file_type = extension.lower()
+            if file_type not in settings.ARTWORK_IMAGE_FILE_TYPES:
+                raise ValidationError(f'Unsupported file format:Supported are{settings.ARTWORK_IMAGE_FILE_TYPES}')
+            return artwork
 
     def clean_cover_image(self):
         cover_image = self.cleaned_data.get("cover_image", False)
-        extension = str(cover_image).split('.')[-1]
-        file_type = extension.lower()
-        if file_type not in settings.COVERIMAGE_IMAGE_FILE_TYPES:
-            raise ValidationError(f'Unsupported file format:Supported are{settings.COVERIMAGE_IMAGE_FILE_TYPES}')
-        return cover_image
+        if cover_image:
+            extension = str(cover_image).split('.')[-1]
+            file_type = extension.lower()
+            if file_type not in settings.COVERIMAGE_IMAGE_FILE_TYPES:
+                raise ValidationError(f'Unsupported file format:Supported are{settings.COVERIMAGE_IMAGE_FILE_TYPES}')
+            return cover_image
