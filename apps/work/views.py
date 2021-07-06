@@ -29,7 +29,6 @@ class WorkFilter(django_filters.FilterSet):
 class WorkList(FilterView):
     model = Work
     template_name = "works/list.html"
-    paginate_by = 10
     filterset_class = WorkFilter
     ordering = ["-id"]
 
@@ -37,6 +36,7 @@ class WorkList(FilterView):
         context = super().get_context_data(**kwargs)
         context["tags"] = Tag.objects.all()
         context["work_types"] = WorkType.objects.all()
+<<<<<<< HEAD
         cover_description_empty_filter = Q(cover_description__isnull=True) | Q(cover_description='')
         work_with_cover_description = Work.objects.exclude(cover_description_empty_filter)
         work_with_no_cover_description = Work.objects.filter(cover_description_empty_filter)
@@ -70,6 +70,10 @@ class WorkList(FilterView):
                 non_description = {"type": "non-description", "items": []}
                 with_description = {"type": "description", "items": []}
         context["works"] = data
+=======
+        print (grouped(context["object_list"], 10))
+        context["grouped_object"] = grouped(context["object_list"], 10)
+>>>>>>> Added work-scroll
         return context
 
 

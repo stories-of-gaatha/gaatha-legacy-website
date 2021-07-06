@@ -47,40 +47,70 @@
         </div>
     </div>
     <div class="content">
+        {% for works in grouped_object %}
+        <div class="block">
         <div class="worklist">
-            {% for work in object_list %}
+            {% for work in works %}
             {% if work.cover_description %}
-            <div class="work-item">
-                <div class="image-with-description">
-                    {% if work.cover_image %}
-                    <a class="image" href="{% url 'work_detail' work.id%}">
-                        <img src="{{work.cover_image.url}}" alt="Cover picture">
-                    </a>
-                    {% endif%}
-                    <div class="description">
-                        <a href="{% url 'work_detail' work.id%}">
-                            <p>{{ work.cover_description|safe|truncatechars:50 }}</p>
-                        </a>
+                <div class="work-item">
+                    <div class="image-with-description">
+                        {% if work.cover_image %}
+                            <a class="image" href="{% url 'work_detail' work.id%}">
+                                <img src="{{work.cover_image.url}}" alt="Cover picture">
+                            </a>
+                        {% endif%}
+                        <div class="description">
+                            <a href="{% url 'work_detail' work.id%}">
+                                <p>{{ work.cover_description|safe|truncatechars:50 }}</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
             {% endif %}
             {% endfor %}
       </div>
 =======
             </div>
+=======
+>>>>>>> Added work-scroll
             {% else %}
-            <div class="work-item no-desc">
-                <div class="image-only" />
-                <a class="image" href="{% url 'work_detail' work.id%}">
-                    <img src="{{work.cover_image.url}}">
-                </a>
-            </div>
+                <div class="work-item no-desc">
+                    <div class="image-only">
+                        <a class="image" href="{% url 'work_detail' work.id%}">
+                            <img src="{{work.cover_image.url}}">
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
+    </div>
         {% endfor %}
     </div>
 >>>>>>> Add Styling in work detail
     </div>
 </main>
+{% endblock %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        var n = 0;
+        var children =  $('.content').children();
+        $('.content').children().hide();
+        $('.content').children().first().show();
+        $('.content').bind('mousewheel', function(event) {
+            $('.content').children().hide();
+            if (event.originalEvent.wheelDelta >= 0) {
+                $(children[n+1]).show();
+                n=n + 1;
+            }
+            else {
+                $(children[n-1]).show();
+                n=n - 1;
+            }
+        });
+    });
+</script>
 {% endblock %}
