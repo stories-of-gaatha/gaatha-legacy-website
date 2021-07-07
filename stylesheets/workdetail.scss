@@ -17,7 +17,6 @@
             display: flex;
             flex-direction: column;
             margin: 20px 0;
-            opacity: 0;
         }
         .filter:active {
             color: $color-text-active;
@@ -104,7 +103,8 @@
             }
 
             .cover-description {
-                overflow-y: auto;
+                overflow-y: scroll;
+                overflow-x: hidden;
                 margin: 15px 0;
                 text-align: left;
                 width: 100%;
@@ -124,7 +124,7 @@
 
                 img {
                     object-fit: contain;
-                    height: 90vh;
+                    height: 100vh;
 
                     @media screen and (max-width: 780px) {
                         object-fit: contain;
@@ -137,14 +137,12 @@
         }
     }
 
-#carouselExampleControls {
-    margin-top: 70px;
-    margin-bottom: auto;
-}
 .carousel{
+
     position: relative;
     display: flex;
     flex-direction: row-reverse;
+    margin-bottom: auto;
 
     .carousel-inner{
 

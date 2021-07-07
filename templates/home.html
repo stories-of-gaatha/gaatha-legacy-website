@@ -57,21 +57,7 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- <div class="fade-out artwork">
-            {% for work in works %}
-                <img src={{work.artwork.url}}>
-            {% endfor %}
-        </div> -->
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-                {% for work in works %}
-                {% if forloop.first %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="{{ forloop.counter0 }}" class="active" aria-current="true" aria-label="Slide 1"></button>
-                {% else %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide 2"></button>
-                {% endif %}
-                {% endfor %}
-            </ol>
             <div class="carousel-inner">
                 {% for work in works %}
                 {% if forloop.first %}

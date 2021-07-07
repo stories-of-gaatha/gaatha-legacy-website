@@ -11,6 +11,10 @@ $font-size-title: 14px;
     flex-grow: 1;
     justify-content: flex-start;
 
+    @media screen and (max-width: 780px) {
+        flex-direction: column;
+    }
+
     .content {
         display: flex;
         flex-direction: row;
@@ -19,6 +23,10 @@ $font-size-title: 14px;
         align-items: center;
         overflow: auto;
         padding: 0 calc(25px / 2);
+
+        @media screen and (max-width: 780px) {
+            flex-direction: column;
+        }
 
         .map {
             display: block;
