@@ -63,6 +63,7 @@ class Work(models.Model):
     # Tag and pictures
     tags = models.ManyToManyField(Tag)
     picture = models.ManyToManyField(Picture)
+    title = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Work"
