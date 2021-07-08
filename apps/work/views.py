@@ -4,7 +4,7 @@ from django_filters.views import FilterView
 from django.views import generic
 from django.shortcuts import render
 
-from apps.work.models import Work, Tag, WorkType
+from apps.work.models import Work, Tag, WorkType, WorkFeature
 from apps.main.models import Page
 
 
@@ -79,6 +79,7 @@ class WorkDetail(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context["tags"] = Tag.objects.all()
         context["work_types"] = WorkType.objects.all()
+        context["work_features"] = WorkFeature.objects.filter(work=self.object)
         return context
 
 

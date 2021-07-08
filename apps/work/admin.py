@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.work.models import Tag, WorkType, Picture, Work
+from apps.work.models import Tag, WorkType, Picture, Work, WorkFeature
 from apps.work.forms import WorkAdminForm
 
 
@@ -33,6 +33,11 @@ class PictureAdmin(admin.ModelAdmin):
     search_fields = ["id", "description"]
 
 
+class WorkFeatureInline(admin.TabularInline):
+    model = WorkFeature
+    extra = 0
+
+
 class WorkAdmin(admin.ModelAdmin):
     """
     Work  admin
@@ -49,6 +54,7 @@ class WorkAdmin(admin.ModelAdmin):
     list_display_links = ["id"]
     search_fields = ["id"]
     form = WorkAdminForm
+    inlines = [WorkFeatureInline]
 
 
 admin.site.register(Tag, TagAdmin)
