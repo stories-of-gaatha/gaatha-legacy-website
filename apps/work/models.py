@@ -44,7 +44,7 @@ class Picture(models.Model):
         verbose_name_plural = "C - Pictures"
 
     def __str__(self):
-        return self.image.url
+        return self.description[:80] if self.description else self.image.url
 
 
 class Work(models.Model):
