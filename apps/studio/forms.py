@@ -1,6 +1,7 @@
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+
 from tinymce.widgets import TinyMCE
+
 from apps.studio.models import People
 
 

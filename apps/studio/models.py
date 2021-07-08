@@ -69,7 +69,10 @@ class People(models.Model):
         null=True,
         blank=True
     )
-    social_medias = models.ManyToManyField(SocialMedia)
+    social_medias = models.ManyToManyField(
+        SocialMedia,
+        blank=True
+    )
 
     class Meta:
         verbose_name = "People"
