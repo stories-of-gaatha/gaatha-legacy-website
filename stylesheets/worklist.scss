@@ -63,7 +63,7 @@
                     display: flex;
                     flex-direction: column;
                     flex-grow: 1;
-                    padding: 45px $spacing-super-large;
+                    padding: 15px $spacing-super-large;
 
                     .image {
                         position: relative;
@@ -77,8 +77,8 @@
 
                         .title {
                             display: none;
-                            position: absolute;
-                            bottom: -24px;
+                            position:absolute;
+                            opacity: 0;
                         }
 
                         &:hover {
@@ -87,7 +87,7 @@
                             }
 
                             .title {
-                                display: block;
+                                opacity: 1;
                             }
                         }
                     }
@@ -127,10 +127,8 @@
                         display: flex;
                         flex-basis: 25%;
 
-                    .title {
-                        display: none;
-                        position: absolute;
-                        bottom: -24px;
+                    .text:hover a{
+                        top: 50%;
                     }
 
                     img {

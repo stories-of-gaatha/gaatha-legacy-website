@@ -15,9 +15,9 @@
         <ion-icon name="menu"></ion-icon>
     </button>
     <div id="myNavbar" class="navbar">
-        <a class="logo" href="{% url 'home' %}">
-            <img src={% static 'logo.png' %} alt="Gaatha logo">
-        </a>
+        <div class="title">
+            {{work.title}}
+        </div>
         <div class="navbar-content">
             <div class="filter tags">
                 {% for tag in tags%}
@@ -114,6 +114,11 @@
                     </div>
                 </div>
         </div>
+        <div id="myNavbar" class="side-logo">
+            <a class="logo" href="{% url 'home' %}">
+                <img src={% static 'logo.png' %} alt="Gaatha logo">
+            </a>
+            </div>
     </div>
 </main>
 
