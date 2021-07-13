@@ -118,7 +118,15 @@
             <a class="logo" href="{% url 'home' %}">
                 <img src={% static 'logo.png' %} alt="Gaatha logo">
             </a>
-            </div>
+        </div>
+    </div>
+    <div class="work-feature">
+        {% if work_features %}
+        {% for work_feature in work_features %}
+        {{ work_feature.feature_name}} <br>
+        {{work_feature.feature_description}} <br>
+        {% endfor %}
+        {% endif %}
     </div>
 </main>
 

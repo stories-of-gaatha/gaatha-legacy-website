@@ -10,8 +10,9 @@
 
     .navbar{
         .title{
-            font-size: 30px;
+            font-size: 25px;
             font-weight: 500px;
+            color: $color-text-active ;
         }
     }
 
@@ -37,9 +38,9 @@
 
     .content {
         display: flex;
-        flex-direction: column;
         flex-grow: 1;
-        align-items: center;
+        align-items: flex-end;
+        margin-bottom: 2.5%;
 
         @media screen and (max-width: 780px) {
             width: 100%;

@@ -190,5 +190,13 @@
                 }
             }
         }
+        .title{
+                position:absolute;
+                opacity: 0;
+        }
+        .title:hover {
+        opacity: 1;
+            }
+        }
     }
 }
