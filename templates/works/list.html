@@ -52,37 +52,37 @@
             <div class="worklist">
                 {% for work in works %}
                     {% if work.cover_description %}
-                        <div class="work-item">
-                            <div class="image-with-description">
-                                {% if work.cover_image %}
-                                    <a class="image" href="{% url 'work_detail' work.id%}">
-                                        <img
-                                            src="{{work.cover_image.url}}"
-                                            alt="Cover picture"
-                                        >
-                                        <div class="title">
-                                            {{work.title}}
-                                        </div>
-                                    </a>
-                                {% endif%}
-                                <a
-                                    class="description"
-                                    href="{% url 'work_detail' work.id%}"
-                                >
-                                    {{ work.cover_description|safe|truncatechars:50 }}
-                                </a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="work-item no-desc">
-                            <div class="image-only">
-                                <a class="image" href="{% url 'work_detail' work.id%}">
-                                    <img src="{{work.cover_image.url}}">
+                        <div class="work-item with-description">
+                            {% if work.cover_image %}
+                                <a class="image-container" href="{% url 'work_detail' work.id%}">
+                                    <img
+                                        class="image"
+                                        src="{{work.cover_image.url}}"
+                                        alt="Cover picture"
+                                    >
                                     <div class="title">
                                         {{work.title}}
                                     </div>
                                 </a>
-                            </div>
+                            {% endif%}
+                            <a
+                                class="description"
+                                href="{% url 'work_detail' work.id%}"
+                            >
+                                {{ work.cover_description|safe|truncatechars:50 }}
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="work-item no-description">
+                            <a class="image-container" href="{% url 'work_detail' work.id%}">
+                                <img
+                                    class="image"
+                                    src="{{work.cover_image.url}}"
+                                >
+                                <div class="title">
+                                    {{work.title}}
+                                </div>
+                            </a>
                         </div>
                     {% endif %}
                 {% endfor %}

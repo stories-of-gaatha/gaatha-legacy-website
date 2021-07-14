@@ -61,89 +61,74 @@
                     flex-direction: column;
                     flex-basis: 100%;
                     flex-grow: 1;
-                    padding: 15px $spacing-super-large;
 
-                    &.no-desc {
+                    &.no-description {
                         flex-basis: 25%;
+                        padding: $spacing-super-large;
                     }
 
                     &:nth-child(odd) {
-                        .image-with-description {
+                        &.with-description {
                             flex-direction: row-reverse;
-
-                            &:hover {
-                                img {
-                                    filter: grayscale(0%);
-                                }
-                            }
                         }
                     }
 
-                    .image {
+                    .image-container {
                         position: relative;
                         display: flex;
                         justify-content: space-between;
-                        flex-basis: calc(50% - 30px);
-                    }
+                        flex-basis: calc(50% - 60px);
 
-                    .image-with-description {
-                        display: flex;
-
-                        .image {
-                            display: flex;
-                            justify-content: space-between;
-                            flex-basis: calc(50% - 30px);
-
-                            img {
-                                height: 13vh;
-                                width: 100%;
-                                object-fit: cover;
-                                filter: grayscale(100%);
-                                transition: all 0.5s ease-in-out;
-                            }
-
-                            &:hover {
-                                img {
-                                    filter: grayscale(0%);
-                                }
-                            }
-                        }
-
-                        .description {
-                            padding: 25px;
+                        img {
+                            width: 100%;
+                            height: 200px;
+                            object-fit: cover;
+                            filter: grayscale(100%);
+                            transition: all 0.5s ease-in-out;
                         }
 
                         .title {
-                            display: block;
+                            position:absolute;
+                            opacity: 0;
+                            bottom: -24px;
+                            left: 0;
                         }
                     }
 
-                    .text {
-                        &:hover {
-                            a{
-                                top: 50%;
+                    &.with-description {
+                        display: flex;
+                        flex-direction: row;
+
+                        .image-container {
+                            margin: 15px $spacing-super-large;
+                        }
+
+                        .description {
+                            margin: 15px $spacing-super-large;
+                        }
+                    }
+
+                    &:hover {
+                        .image-container {
+                            img {
+                                filter: grayscale(0%);
                             }
                         }
-                    }
 
-                    img {
-                        width: 100%;
-                        height: 200px;
-                        object-fit: cover;
-                        filter: grayscale(100%);
-                        transition: all 0.5s ease-in-out;
+                        .title {
+                            opacity: 1;
+                        }
                     }
 
                     @media screen and (max-width: 780px) {
                         flex-direction: column;
                         flex-wrap: unset;
-                        padding: 25px;
 
                         &.no-desc {
                             flex-basis: unset;
                         }
 
-                        .image-with-description {
+                        .with-description {
                             flex-direction: column;
 
                             &:nth-child(odd) {
@@ -156,26 +141,6 @@
                         }
                     }
                 }
-
-
-                a {
-                    color: #888;
-                    text-decoration: none;
-                    transition: 0.3s fade;
-
-                    &:hover {
-                        color: $color-text-active;
-                    }
-                }
-            }
-        }
-
-        .title {
-            position:absolute;
-            opacity: 0;
-
-            &:hover {
-                opacity: 1;
             }
         }
     }
