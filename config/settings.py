@@ -137,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 if DEBUG:
     # Settings for local storage and local staticfiles
-    STATIC_URL = "/static/"
+    STATIC_URL = "/staticfiles/"
     MEDIA_URL = "/media/"
 
 
