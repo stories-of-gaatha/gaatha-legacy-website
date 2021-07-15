@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 
 from tinymce.widgets import TinyMCE
-from apps.work.models import Work
+from apps.work.models import Work, Picture
 
 
 class WorkAdminForm(forms.ModelForm):
@@ -33,4 +33,16 @@ class WorkAdminForm(forms.ModelForm):
             file_type = extension.lower()
             if file_type not in settings.COVERIMAGE_IMAGE_FILE_TYPES:
                 raise ValidationError(f'Unsupported file format:Supported are{settings.COVERIMAGE_IMAGE_FILE_TYPES}')
-            return cover_image
+            return cover_imag\
+
+
+class PictureAdminForm(forms.ModelForm):
+    """
+    Work picture admin form
+    """
+
+    description = forms.CharField(widget=TinyMCE(attrs={"cols": 80, "rows": 30}), required=False)
+
+    class Meta:
+        model = Picture
+        fields = "__all__"
