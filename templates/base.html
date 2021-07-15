@@ -25,6 +25,7 @@
 
     <script type="application/javascript">
         document.addEventListener('DOMContentLoaded', () => {
+            const animated = sessionStorage.getItem("animated");
             const preLoad = document.getElementById('pre-load');
             const content = document.getElementById('content-wrapper');
             const progress = document.getElementById('progress');
@@ -32,11 +33,13 @@
             const topMask = document.getElementById('top-mask');
             let animationEnded = false;
             let transitionEnded = false;
+
             const handleTransitionEnd = () => {
                 preLoad.remove();
                 mask.style.display = 'flex';
                 content.style.display = 'flex';
                 transitionEnded = true;
+                sessionStorage.setItem('animated', 'true');
             };
             const handleAnimationEnd = () => {
                 window.setTimeout(() => {
@@ -44,16 +47,22 @@
                 }, 0);
                 animationEnded = true;
                 window.setTimeout(() => {
-                    if (!transitionEnded) {
+                    if(!transitionEnded) {
                         handleTransitionEnd();
                     }
                 }, 1200);
             };
+            if(animated && animated!== null && animated!== ""){
+                handleAnimationEnd();
+                handleTransitionEnd();
+                mask.remove();
+                return;
+            }
             progress.addEventListener('animationend', handleAnimationEnd);
             progress.addEventListener('transitionend', handleTransitionEnd);
 
             window.setTimeout(() => {
-                if (!animationEnded) {
+                if(!animationEnded) {
                     handleAnimationEnd();
                 }
             }, 1200);
@@ -105,8 +114,7 @@
             }
         }
     </script>
-    {% block scripts %}
-    {% endblock %}
+        {% block scripts %}
+        {% endblock %}
 </body>
-
 </html>

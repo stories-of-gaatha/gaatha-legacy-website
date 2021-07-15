@@ -8,6 +8,14 @@
     overflow: hidden;
     height: 100vh;
 
+    .navbar{
+        .title{
+            font-size: 25px;
+            font-weight: 500px;
+            color: $color-text-active ;
+        }
+    }
+
     @media screen and (max-width: 780px) {
         flex-direction: column;
     }
@@ -17,42 +25,38 @@
             display: flex;
             flex-direction: column;
             margin: 20px 0;
-
-            .menu-item {
-                transition: opacity 0.2s ease-in-out;
-                opacity: 0;
-
-                &.active {
-                    opacity: 1;
-                }
-            }
         }
-
         .filter:active {
             color: $color-text-active;
+            opacity: 1;
         }
         .filter:hover {
             color: $color-text-active;
-        }
-
-        &:hover {
-            .menu-item {
-                opacity: 1;
-            }
+            opacity: 1;
         }
     }
 
     .content {
         display: flex;
-        flex-direction: column;
         flex-grow: 1;
-        align-items: center;
+        align-items: flex-end;
+        margin-bottom: 2.5%;
+
+        @media screen and (max-width: 780px) {
+            width: 100%;
+        }
 
         .content-first {
             display: block;
             width: 100%;
             margin-top: auto;
             margin-bottom: auto;
+
+            @media screen and (max-width: 780px) {
+                object-fit: cover;
+                width: 100%;
+                height: 50vh;
+            }
 
             .cover-image {
                 display: flex;
@@ -71,45 +75,132 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            width: $width-content;
             height: 95vh;
             margin-left: auto;
             margin-right: auto;
+
+            @media screen and (max-width: 780px) {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 55vh;
+            }
 
             .cover-artwork {
                 margin: 15px 0;
                 text-align: left;
                 width: 49%;
                 padding-right: 5px;
-            }
-
-            .cover-description {
-                overflow-y: scroll;
-                overflow-x: auto;
-                margin: 15px 0;
-                text-align: left;
-                width: 100%;
-                padding-right: 5px;
-                height: 45vh;
-            }
-
-            .cover-image {
-                width: 49%;
 
                 img {
-                    object-fit: contain;
-                    height: 90vh;
-                    margin-top: 30px;
+                    object-fit: cover;
+                    width: auto;
+                    height: 30vh;
 
                     @media screen and (max-width: 780px) {
                         object-fit: cover;
                     }
                 }
+                @media screen and (max-width: 780px) {
+                    margin: 15px;
+                    text-align: left;
+                    width: 98%;
+                    padding-left: 15px;
+                }
+            }
+
+            .cover-description {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                margin: 15px 0;
+                text-align: left;
+                width: 100%;
+                padding-right: 5px;
+                height: 60vh;
+
+                @media screen and (max-width: 780px) {
+                    height: 25vh;
+                }
+            }
+
+            .cover-image {
+                width: 49%;
+                @media screen and (max-width: 780px) {
+                    width: auto;
+                }
+
+                img {
+                    object-fit: contain;
+                    height: 100vh;
+
+                    @media screen and (max-width: 780px) {
+                        object-fit: contain;
+                        width: 100%;
+                        height: 32vh;
+                        margin-top: 15px;
+                    }
+                }
+            }
+            .side-logo{
+                width: 100px;
+                height: 65px;
             }
         }
     }
+
+.carousel{
+
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: auto;
+
+    .carousel-inner{
+
+        .carousel-item{
+            transition: 0.6s ease-in-out top;
+
+            .active {
+                display: block;
+                transition: 0.6s ease-in-out top;
+                opacity: 1;
+            }
+        }
+    }
+
+    .carousel-indicators{
+        flex-direction: column;
+        position: unset;
+        margin-right: -7%;
+        margin-left: 4%;
+
+        button {
+            display: inline-block;
+            width: 10px !important;
+            height: 10px !important;
+            margin: 5px;
+            text-indent: 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+        }
+    }
+}
+
+.fade-in {
+    animation: fadeIn ease-in-out 5s infinite;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
 }
 img {
-    object-fit: cover;
     width: 100%;
 }

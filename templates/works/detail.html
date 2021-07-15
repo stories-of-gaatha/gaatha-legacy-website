@@ -2,17 +2,22 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href={% static 'css/workdetail.css' %}>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href={% static 'css/workdetail.css' %}
+    >
 {% endblock %}
+
 {% block content %}
 <main class="work-detail">
     <button href="javascript:void(0);" class="hamburger" onclick="clickFunction()">
         <ion-icon name="menu"></ion-icon>
     </button>
     <div id="myNavbar" class="navbar">
-        <a class="logo" href="{% url 'home' %}">
-            <img src={% static 'logo.png' %} alt="Gaatha logo">
-        </a>
+        <div class="title">
+            {{work.title}}
+        </div>
         <div class="navbar-content">
             <div class="filter tags">
                 {% for tag in tags%}
@@ -59,23 +64,60 @@
         <div class="content-sec">
             <div class="cover-artwork">
                 <img src={{work.artwork.url}} />
-            <div class="cover-description">
-                {% if object.picture %}
-                {% for picture in object.picture.all %}
-                <p>{{ picture.description }}</p>
-                {% endfor %}
-                {% endif %}
+                <div class="cover-description">
+                    {% if object.picture %}
+                    {% for picture in object.picture.all %}
+                    <p>{{ picture.description }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
             </div>
-        </div>
             <div class="cover-image">
-                {% if object %}
-                {% if object.picture %}
-                {% for picture in object.picture.all %}
-                <img src={{ picture.image.url }}>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endif %}
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                    <ol class="carousel-indicators">
+                        {% if object %}
+                        {% if object.picture %}
+                        {% for picture in object.picture.all %}
+                        <button type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide-to="{{ forloop.counter0 }}" class="active" aria-current="true"
+                            aria-label="Slide 1"></button>
+                        {% endfor %}
+                        <button type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide 2"></button>
+                        {% endif %}
+                        {% endif %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for picture in object.picture.all %}
+                        {% if forloop.first %}
+                        <div class="carousel-item active">
+                            <div class="works">
+                                <div class="work-item">
+                                    <div class="image-wrapper">
+                                        <img src={{ picture.image.url }}>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="carousel-item">
+                            <div class="works">
+                                <div class="work-item">
+                                    <div class="image-wrapper">
+                                        <img src={{ picture.image.url }}>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+        <div id="myNavbar" class="side-logo">
+            <a class="logo" href="{% url 'home' %}">
+                <img src={% static 'logo.png' %} alt="Gaatha logo">
+            </a>
         </div>
     </div>
     <div class="work-feature">
@@ -92,14 +134,13 @@
 {% block scripts %}
 <script>
     $(document).ready(function () {
-        window.initializeCarousel = () => {
-            $("#carouselExampleControls").carousel({ interval: 500, pause: "none" });
-        }
+        $("#carouselExampleControls").carousel();
         $(".content-sec").hide();
         setTimeout(function () {
             $('.content-first').hide();
             $(".content-sec").show();
         }, 5000);
+        $('.carousel').carousel('pause');
     });
 </script>
 {% endblock %}

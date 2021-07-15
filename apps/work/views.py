@@ -7,6 +7,11 @@ from django.shortcuts import render
 from apps.work.models import Work, Tag, WorkType, WorkFeature
 from apps.main.models import Page
 
+def grouped(l, n):
+    group = []
+    for i in range(0, len(l), n):
+        group.append(l[i:i+n])
+    return group
 
 class WorkFilter(django_filters.FilterSet):
     """
@@ -65,6 +70,7 @@ class WorkList(FilterView):
                 non_description = {"type": "non-description", "items": []}
                 with_description = {"type": "description", "items": []}
         context["works"] = data
+        context["grouped_object"] = grouped(context["object_list"], 10)
         return context
 
 
