@@ -58,6 +58,12 @@
             <div id="cover-image" class="cover-image">
                 <img src="{{work.cover_image.url}}" alt="Cover picture">
             </div>
+            <div class="d-flex">
+                <button id="next" class="bounce">
+                    <i class="fa fa-angle-down">
+                    </i>
+                </button>
+            </div>
             {% endif%}
             {% endif %}
         </div>
@@ -140,6 +146,10 @@
             $('.content-first').hide();
             $(".content-sec").show();
         }, 5000);
+        $('#next').click(()=>{
+            $('.content-first').hide();
+            $(".content-sec").show();
+        });
         $('.carousel').carousel('pause');
     });
 </script>

@@ -29,7 +29,6 @@ class WorkFilter(django_filters.FilterSet):
 class WorkList(FilterView):
     model = Work
     template_name = "works/list.html"
-    paginate_by = 10
     filterset_class = WorkFilter
     ordering = ["-id"]
 
