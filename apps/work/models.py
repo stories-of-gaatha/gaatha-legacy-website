@@ -51,19 +51,25 @@ class Work(models.Model):
     """
     Work model
     """
-
+    title = models.CharField(max_length=255)
     artwork = models.FileField(null=True, blank=True, upload_to="artworks")
     cover_image = models.ImageField(
-        null=True, blank=True, upload_to="cover_images", max_length=255
+        null=True,
+        blank=True,
+        upload_to="cover_images",
+        max_length=255,
+        verbose_name="List image"
     )
-    cover_description = models.TextField(blank=True)
+    list_description = models.TextField(
+        blank=True,
+        verbose_name="List description"
+    )
     is_featured_in_dashboard = models.BooleanField(default=False)
     # Work type foreign key
     work_type = models.ForeignKey(WorkType, on_delete=models.PROTECT)
     # Tag and pictures
     tags = models.ManyToManyField(Tag)
     picture = models.ManyToManyField(Picture)
-    title = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Work"
