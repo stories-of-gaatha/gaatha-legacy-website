@@ -11,7 +11,7 @@ class WorkAdminForm(forms.ModelForm):
     Work admin form
     """
 
-    cover_description = forms.CharField(widget=TinyMCE(attrs={"cols": 80, "rows": 30}), required=False)
+    list_description = forms.CharField(widget=TinyMCE(attrs={"cols": 80, "rows": 30}), required=False)
 
     class Meta:
         model = Work

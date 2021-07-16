@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='work',
-            name='cover_description',
+            name='list_description',
             field=models.TextField(blank=True),
         ),
     ]

@@ -51,7 +51,7 @@
         <div class="block">
             <div class="worklist">
                 {% for work in works %}
-                    {% if work.cover_description %}
+                    {% if work.list_description %}
                         <div class="work-item with-description">
                             {% if work.cover_image %}
                                 <a class="image-container" href="{% url 'work_detail' work.id%}">
@@ -69,7 +69,7 @@
                                 class="description"
                                 href="{% url 'work_detail' work.id%}"
                             >
-                                {{ work.cover_description|safe|truncatechars:50 }}
+                                {{ work.list_description|safe|truncatechars:50 }}
                             </a>
                         </div>
                     {% else %}

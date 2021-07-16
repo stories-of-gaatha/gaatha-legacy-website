@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                         blank=True, max_length=255, null=True, upload_to="cover_images"
                     ),
                 ),
-                ("cover_description", models.TextField()),
+                ("list_description", models.TextField()),
                 ("is_featured_in_dashboard", models.BooleanField(default=False)),
                 ("picture", models.ManyToManyField(to="work.Picture")),
                 ("tags", models.ManyToManyField(to="work.Tag")),
