@@ -33,7 +33,7 @@ class WorkAdminForm(forms.ModelForm):
             file_type = extension.lower()
             if file_type not in settings.COVERIMAGE_IMAGE_FILE_TYPES:
                 raise ValidationError(f'Unsupported file format:Supported are{settings.COVERIMAGE_IMAGE_FILE_TYPES}')
-            return cover_imag\
+            return cover_image
 
 
 class PictureAdminForm(forms.ModelForm):
