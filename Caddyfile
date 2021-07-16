@@ -1,0 +1,12 @@
+gaatha.togglecorp.com {
+    encode gzip zstd
+
+    root * /var/www/
+
+    @notStatic {
+      not path /staticfiles/* /media/*
+    }
+    reverse_proxy @notStatic web:${SERVER_PORT}
+
+    file_server
+}

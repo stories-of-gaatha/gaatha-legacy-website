@@ -19,14 +19,32 @@ services:
     build: .
     env_file:
       - .env
-    command: bash -c "/code/scripts/run_develop.sh"
+    command: bash -c "/code/scripts/run_prod.sh"
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "${SERVER_PORT}:${SERVER_PORT}"
     depends_on:
       - db
       - style
 
+  # caddy:
+  #   image: caddy:2.2.1
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #     - ./staticfiles:/var/www/static
+  #     - ./media:/var/www/media
+  #     - caddy_data:/data
+  #     - caddy_config:/config
+  #   depends_on:
+  #     - web
+
 volumes:
+  # web-static:
+  # web-media:
+  # caddy_data:
+  # caddy_config:
   db-data:
