@@ -57,6 +57,10 @@
             {% if object.cover_image %}
             <div id="cover-image" class="cover-image">
                 <img src="{{work.cover_image.url}}" alt="Cover picture">
+                <button id="next" class="bounce">
+                    <i class="fa fa-angle-down">
+                    </i>
+                </button>
             </div>
             {% endif%}
             {% endif %}
@@ -140,6 +144,10 @@
             $('.content-first').hide();
             $(".content-sec").show();
         }, 5000);
+        $('#next').click(()=>{
+            $('.content-first').hide();
+            $(".content-sec").show();
+        });
         $('.carousel').carousel('pause');
     });
 </script>
