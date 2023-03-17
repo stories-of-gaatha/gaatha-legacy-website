@@ -1,4 +1,5 @@
 # GAATHA
+> This has been moved to https://github.com/toggle-corp/gaatha-v2
 
 ## Prerequisites
 
